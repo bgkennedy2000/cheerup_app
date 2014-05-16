@@ -13,6 +13,9 @@ class Cheerup < ActiveRecord::Base
   scope :bans, -> { where(state: "banned") }
   scope :flags, -> { where(state: "flagged") }
   scope :published, -> { where(state: "published") }
+  
+  mount_uploader :image_url, CheerupImageUploader
+
   after_initialize :defaults
 
   def likes_count

@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'haml-rails'
 gem 'rails', '3.2.18'
 
+gem 'carrierwave', '= 0.9.0'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

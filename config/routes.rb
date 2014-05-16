@@ -1,7 +1,9 @@
 CheerupApp::Application.routes.draw do
   
 
+
   devise_for :users
+  resources :cheerups
 
   root :to => 'application#index'
 
