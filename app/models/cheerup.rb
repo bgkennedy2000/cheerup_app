@@ -1,5 +1,5 @@
 class Cheerup < ActiveRecord::Base
-  attr_accessible :image_url, :message, :state, :user_id
+  attr_accessible :user_id, :image_url, :message, :state
 
   belongs_to :user
   has_many :feedbacks
@@ -23,8 +23,10 @@ class Cheerup < ActiveRecord::Base
     self.feedbacks.where(kind: "flag").count
   end
 
+  def defaults
+    self.image_url ||= 'none'
+  end
+
 end
 
-def defaults
-  self.image_url ||= 'none'
-end
+

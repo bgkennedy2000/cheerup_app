@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def flags
-    self.feedbacks.where(kind: "flags")
+    self.feedbacks.where(kind: "flag")
   end
 
   def valid_cheerups
@@ -35,13 +35,16 @@ class User < ActiveRecord::Base
   def banned_cheerups
     self.cheerups.where(state: "banned")
   end
+
+  def defaults
+    self.location ||= 'none'
+    self.profile_pic ||= 'none'
+    self.tagline ||= 'none'
+    self.cover_image_url ||= 'none'
+    self.role ||= "guest"
+  end
+
 end
 
 
-def defaults
-  self.location ||= 'none'
-  self.profile_pic ||= 'none'
-  self.tagline ||= 'none'
-  self.cover_image_url ||= 'none'
-  self.role ||= "guest"
-end
+
