@@ -17,8 +17,8 @@ development:
   encoding: unicode
   database: cheerup_app_development
   pool: 5
-  username: cheerup_app
-  password:
+  # username: cheerup_app
+  # password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,13 +43,13 @@ test:
   encoding: unicode
   database: cheerup_app_test
   pool: 5
-  username: cheerup_app
-  password:
+  # username: cheerup_app
+  # password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: cheerup_app_production
   pool: 5
-  username: cheerup_app
-  password:
+  # username: cheerup_app
+  # password:

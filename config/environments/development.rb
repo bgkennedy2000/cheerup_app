@@ -34,4 +34,9 @@ CheerupApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # added per devise
+
+  config.assets.initialize_on_precompile = false
+  
 end
