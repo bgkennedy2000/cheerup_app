@@ -29,7 +29,6 @@ group :development, :test do
   gem 'better_errors'
 end
 
-gem 'cancan'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 

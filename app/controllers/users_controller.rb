@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
+  
   # GET /artists
   # GET /artists.json
   def index
     # @q = Users.search(params[:q])
     # @users = @q.result(distinct: true).order(:created_at).page(params[:page])
-    @users = Users.all
+    @users = User.all
 
     respond_to do |format|
       format.html # index.html.erb
