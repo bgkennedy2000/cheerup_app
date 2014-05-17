@@ -16,6 +16,8 @@ class Cheerup < ActiveRecord::Base
   
   mount_uploader :image_url, CheerupImageUploader
 
+  #mount_uploader :image_file, CheerupImageUploader
+
   after_initialize :defaults
 
   def likes_count
