@@ -1,1 +1,28 @@
 this is my profile
+
+
+
+<div>
+  <%= @user.username %>
+</div>
+
+<p>
+  <%= @user.location %>
+</p>
+
+<p>
+  <%= @user.tagline %>
+</p>
+
+<p>
+  Cheerups<br>
+  <% @user.cheerups.each do |cheerup| %>
+    <%= link_to cheerup, cheerup_path(cheerup) %><br>
+  <% end %>
+</p>
+
+<%= link_to 'Edit Profile', edit_user_path %>
+
+<%= link_to 'New Cheerup', new_cheerup_path %>
+
+
