@@ -8,7 +8,7 @@ class Cheerup < ActiveRecord::Base
   validates_length_of :message, maximum: 141 
   validates :user_id, presence: true
   validates :image_url, presence: true
-  validates :state, :inclusion => {:in => ["flagged", "banned", "published"]}
+  #validates :state, :inclusion => {:in => ["flagged", "banned", "published"]}
 
   scope :bans, -> { where(state: "banned") }
   scope :flags, -> { where(state: "flagged") }

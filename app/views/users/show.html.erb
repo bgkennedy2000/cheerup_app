@@ -1,6 +1,10 @@
 this is my profile
 
-
+<p>
+  <b>
+  <%= image_tag @user.profile_pic %>
+  </b>
+</p>
 
 <div>
   <%= @user.username %>
@@ -24,5 +28,7 @@ this is my profile
 <%= link_to 'Edit Profile', edit_user_path %>
 
 <%= link_to 'New Cheerup', new_cheerup_path %>
+
+
 
 

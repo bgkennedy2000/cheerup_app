@@ -12,6 +12,7 @@
   <div class='login'>
     <% if current_user %>
       <%= current_user.email %>
+      <%= link_to 'Profile', current_user %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "Sign In", new_user_session_path %>

@@ -13,11 +13,12 @@
 
   <div class="field">
     <%= f.label :image_url %><br />
-    <%= f.file_field :image_url %>
+    <%= f.text_field :image_url %>
   </div>
   <div class="field">
     <%= f.label :message %><br />
     <%= f.text_field :message %>
-    <%= f.submit %>
   </div>
+    <%= f.hidden_field :state %>
+  <%= f.submit %>
 <% end %>
