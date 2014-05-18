@@ -1,2 +1,21 @@
 this is an index page for all users. what to do with it. do we even want a index page where to see all users?
 perhaps useful for searching users.
+
+
+<!-- # <%#= search_form_for @q do |f| %>
+#   <p>
+#     <%#= f.label :username_cont %>
+#     <%#= f.text_field :username_cont %>
+#     <%#= f.submit %>
+#   </p>
+# <%# end %> -->
+
+<div>
+  <ul>
+<li><% @users.each do |user| %>
+<%= link_to user.username, user %>
+<%= user.location %>
+</li>
+<% end %>
+</ul>
+</div>
