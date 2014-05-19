@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   
-  # GET /artists
-  # GET /artists.json
+  
   def index
     # @q = Users.search(params[:q])
     # @users = @q.result(distinct: true).order(:created_at).page(params[:page])
@@ -13,8 +13,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /artists/1
-  # GET /artists/1.json
+ 
   def show
     @user = User.find(params[:id])
 
@@ -24,8 +23,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /artists/new
-  # GET /artists/new.json
   def new
     @user = User.new
 
@@ -35,13 +32,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /artists/1/edit
+  
   def edit
     @user = User.find(params[:id])
   end
 
-  # POST /artists
-  # POST /artists.json
+  
   def create
     @user = User.new(params[:user])
 
@@ -58,8 +54,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /artists/1
-  # PUT /artists/1.json
+  
   def update
     @user = User.find(params[:id])
 
@@ -74,8 +69,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /artists/1
-  # DELETE /artists/1.json
+  
   def destroy
     @user = User.find(params[:id])
     @user.destroy

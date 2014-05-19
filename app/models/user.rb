@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 
   after_initialize :defaults
 
+  before_save :update_user_role
+
   def likes
     self.feedbacks.where(kind: "like")
   end
@@ -65,6 +67,12 @@ class User < ActiveRecord::Base
 
   def role?(role)
     self.role.to_s == role.to_s
+  end
+
+  def update_user_role
+    if self.role == "guest"
+      self.role = "user"
+    end
   end
 
 end

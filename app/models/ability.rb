@@ -7,13 +7,17 @@ class Ability
 
     if user.role? :admin
         can :manage, :all
-    else 
-        can :manage, Cheerup, :users_id => user.id
+    elsif user.role? :user
+        can :manage, Cheerup, :user_id => user.id
         can :read, Cheerup
         can :read, User
-        can :read, Comment
         can :manage, User, :id => user.id
-
+    elsif user.role? :banned
+        can :read, Cheerup
+        can :read, User
+    else user.role? :guest
+        can :read, Cheerup
+        can :read, User
     end
 
     # Define abilities for the passed in user here. For example:
