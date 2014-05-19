@@ -1,11 +1,10 @@
 
 <% @cheerups.each do |cheerup| %>
+  <% @cheerup = cheerup %>
 
-  <div class="cheerup">
-    <p><img src="<%= cheerup.image_url %>"></p>
-  </div>
+    <%= render 'cheerup' %>
 
 <% end %>
 
 
-<%= link_to 'Back', root_path %>
+<p><%= link_to 'Back', root_path %></p>
