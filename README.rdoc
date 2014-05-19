@@ -2,6 +2,10 @@
 
 == Branches
 
-* master - model
+* master - master
+* tweet - sharing with twitter
+
+== Discontinued branches
+
 * views - views and controllers
 * twitter - Twitter integration

@@ -1,10 +1,7 @@
 
-<% @cheerups.each do |cheerup| %>
-  <% @cheerup = cheerup %>
 
-    <%= render 'cheerup' %>
+    <%= render @cheerups %>
 
-<% end %>
 
 
 <p><%= link_to 'Back', root_path %></p>

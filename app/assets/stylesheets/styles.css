@@ -24,6 +24,15 @@ header, .main {
   height: 200px;
 }
 
+.cheerup:hover {
+  opacity:0.4;
+}
+
+.cheerup a {
+  color: black;
+  text-decoration: none;
+}
+
 .message
 {
   position:relative;
