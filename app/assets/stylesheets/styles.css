@@ -1,0 +1,13 @@
+body {
+  font-family: Helvetica;
+}
+
+header, .main {
+  border: 1px solid black;
+}
+
+.main {
+  margin: 20px auto;
+  width: 640px;
+
+}

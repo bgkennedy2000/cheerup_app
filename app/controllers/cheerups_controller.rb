@@ -57,7 +57,7 @@ def create
 
   
   def destroy
-    @cheerup = Cheeruo.find(params[:id])
+    @cheerup = Cheerup.find(params[:id])
     @cheerup.destroy
 
     respond_to do |format|

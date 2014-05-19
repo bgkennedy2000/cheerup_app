@@ -4,11 +4,15 @@
   <title>Cheerup</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "styles.css" %>
+
   <%= csrf_meta_tags %>
 </head>
 <header>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
+  <nav>
   <div class='login'>
     <% if current_user %>
       Hello, <%= current_user.username %>
@@ -26,13 +30,19 @@
     <% end %>
   </div>
   
+  </nav>
+  
 
 </header>
 
 <body>
+
+<div class="main">
   
 
 <%= yield %>
+
+</div>
 
 </body>
 </html>
