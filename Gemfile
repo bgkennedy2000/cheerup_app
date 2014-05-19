@@ -6,6 +6,8 @@ gem 'rails', '3.2.18'
 gem 'carrierwave', '0.9.0'
 gem 'rmagick'
 
+gem 'cancan', '1.6.10'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
