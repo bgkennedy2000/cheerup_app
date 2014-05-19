@@ -5,7 +5,14 @@
 
 <%= render @cheerup %>
 
+<% if current_user && current_user.provider == "twitter" %>
 
+  <%= form_for :tweet, url: tweets_path, method: :post do |f| %>
+    <%= f.hidden_field :cheerup_id, value: @cheerup.id %>
+    <%= f.submit "Send Tweet" %>
+  <% end %>
+
+<% end %>
 
 <% if can? :update, @cheerup %>
   <%= link_to 'Edit Cheerup', edit_cheerup_path(@cheerup) %>

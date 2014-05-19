@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140518192214) do
+ActiveRecord::Schema.define(:version => 20140519202619) do
 
   create_table "cheerups", :force => true do |t|
     t.string   "image_url"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20140518192214) do
     t.datetime "updated_at",                             :null => false
     t.string   "uid"
     t.string   "provider"
+    t.string   "oauth_token"
+    t.string   "oauth_secret"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

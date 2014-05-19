@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:twitter]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_pic, :location, :username, :role, :tagline, :cover_image_url, :provider, :uid
-  
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_pic, :location, :username, :role, :tagline, :cover_image_url, :provider, :uid, :oauth_token, :oauth_secret
 
   has_many :cheerups, :dependent => :destroy
   has_many :feedbacks, :dependent => :destroy
@@ -47,12 +46,13 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    puts "auth.info"
-    puts auth.info
     if user = User.find_by_email(auth.info.nickname+"@twitter.com")
       user.provider = auth.provider
       user.uid = auth.uid
+      user.oauth_token = auth.credentials.token
+      user.oauth_secret = auth.credentials.secret
       user
+
     else
       where(auth.slice(:provider, :uid)).first_or_create do |user|
         user.provider = auth.provider
@@ -60,6 +60,8 @@ class User < ActiveRecord::Base
         user.username = auth.info.nickname
         user.email = auth.info.nickname+"@twitter.com"
         user.password = Devise.friendly_token[0,20]
+        user.oauth_token = auth.credentials.token
+        user.oauth_secret = auth.credentials.secret
       end
     end
   end
