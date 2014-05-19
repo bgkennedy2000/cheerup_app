@@ -25,11 +25,12 @@ this is my profile
   <% end %>
 </p>
 
-<%= link_to 'Edit Profile', edit_user_path %>
+<% if can? :update, @user %>
+  <%= link_to 'Edit Profile', edit_user_path(@user) %>
+<% end %> 
 
-<%= link_to 'New Cheerup', new_cheerup_path %>
 
-<%= link_to 'Home', root_path %>
+
 
 
 
