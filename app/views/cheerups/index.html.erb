@@ -1,8 +1,11 @@
 
-Show all cheerups
+<% @cheerups.each do |cheerup| %>
 
-maybe put a search bar which allows to look up key words present in the text
+  <div class="cheerup">
+    <p><img src="<%= cheerup.image_url %>"></p>
+  </div>
 
+<% end %>
 
 
 <%= link_to 'Back', root_path %>

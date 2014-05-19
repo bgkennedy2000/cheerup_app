@@ -14,7 +14,7 @@ class Cheerup < ActiveRecord::Base
   scope :flags, -> { where(state: "flagged") }
   scope :published, -> { where(state: "published") }
   
-  mount_uploader :image_url, CheerupImageUploader
+  #mount_uploader :image_url, CheerupImageUploader
 
   #mount_uploader :image_file, CheerupImageUploader
 

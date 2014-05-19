@@ -1,6 +1,8 @@
 class CheerupsController < ApplicationController
   
-
+  def index
+    @cheerups = Cheerup.all
+  end
 
   def new
     @cheerup = Cheerup.new
