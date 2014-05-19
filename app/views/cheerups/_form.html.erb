@@ -19,6 +19,6 @@
     <%= f.label :message %><br />
     <%= f.text_field :message %>
   </div>
-    <%= f.hidden_field :state %>
+    <%= f.hidden_field :state, value: "published" %>
   <%= f.submit %>
 <% end %>
