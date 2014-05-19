@@ -2,10 +2,10 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:twitter]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_pic, :location, :username, :role, :tagline, :cover_image_url
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_pic, :location, :username, :role, :tagline, :cover_image_url, :provider, :uid
   
 
   has_many :cheerups, :dependent => :destroy
@@ -42,6 +42,24 @@ class User < ActiveRecord::Base
     self.tagline ||= 'none'
     self.cover_image_url ||= 'none'
     self.role ||= "guest"
+  end
+
+  def self.from_omniauth(auth)
+    puts "auth.info"
+    puts auth.info
+    if user = User.find_by_email(auth.info.nickname+"@twitter.com")
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user
+    else
+      where(auth.slice(:provider, :uid)).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.username = auth.info.nickname
+        user.email = auth.info.nickname+"@twitter.com"
+        user.password = Devise.friendly_token[0,20]
+      end
+    end
   end
 
 end

@@ -30,8 +30,8 @@ group :development, :test do
 end
 
 gem 'devise'
-gem 'omniauth-google-oauth2'
-
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 gem 'jquery-rails'
 
