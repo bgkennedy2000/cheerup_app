@@ -7,6 +7,9 @@
 <p><%= @cheerup.message %></p>
 
 
+<% if can? :update, @cheerup %>
+  <%= link_to 'Edit Cheerup', edit_cheerup_path(@cheerup) %>
+<% end %> 
 
 
 <%= link_to 'Back', root_path %>
