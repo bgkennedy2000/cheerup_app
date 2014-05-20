@@ -34,6 +34,7 @@ end
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'twitter'
 
 gem 'jquery-rails'
 

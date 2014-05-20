@@ -7,6 +7,8 @@ CheerupApp::Application.routes.draw do
   resources :cheerups
   resources :users
   resources :feedbacks, only: [:create, :destroy]
+  resources :tweets, only: [:create]
+
   get '/home', to: 'home#index'
   
   root :to => 'application#index'
