@@ -10,7 +10,7 @@ class FeedbacksController < ApplicationController
     if @feedback.save
       redirect_to @cheerup, notice: 'Feedback was successfully created.' 
     else
-      redirect_to @cheerup, notice: 'Feedback not successfully created. '
+      redirect_to @cheerup, notice: 'Feedback not successfully created. '+@feedback.errors.full_messages.join(". ")+"."
     end
 
   end
