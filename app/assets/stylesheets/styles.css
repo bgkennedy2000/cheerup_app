@@ -8,7 +8,7 @@ header, .main {
 
 .main {
   margin: 20px auto;
-  width: 640px;
+  width: 960px;
 
 }
 .cheerup {
@@ -62,3 +62,4 @@ header, .main {
   padding: 10px;
   text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }
+
