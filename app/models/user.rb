@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:twitter]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_pic, :location, :username, :role, :tagline, :cover_image_url, :provider, :uid
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_pic, :location, :username, :tagline, :cover_image_url, :provider, :uid
   
 
   has_many :cheerups, :dependent => :destroy
