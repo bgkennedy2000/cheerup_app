@@ -9,7 +9,7 @@ class CheerupsController < ApplicationController
   end
 
 
-def create
+  def create
     @cheerup = Cheerup.new(params[:cheerup])
     @cheerup.user = current_user
 

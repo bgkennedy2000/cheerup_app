@@ -1,20 +1,20 @@
 
-<div>
-  <p>Username:<%= @cheerup.user.username %></p>
-</div>
+<p>Username:<%= @cheerup.user.username %></p>
 
 <%= render @cheerup %>
 
 <% if can? :update, @cheerup %>
-  <%= link_to 'Edit Cheerup', edit_cheerup_path(@cheerup) %>
-  <%= link_to 'Delete Cheerup', @cheerup, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-  <% if current_user && current_user.provider == "twitter" && current_user.id == @cheerup.user.id %>
-    <%= form_for :tweet, url: tweets_path, method: :post do |f| %>
-      <%= f.hidden_field :cheerup_id, value: @cheerup.id %>
-      <%= f.submit "Send Tweet" %>
+  <p>
+    <% if current_user && current_user.provider == "twitter" && current_user.id == @cheerup.user.id %>
+      <%= form_for :tweet, url: tweets_path, method: :post, class: "tweet_form" do |f| %>
+        <%= f.hidden_field :cheerup_id, value: @cheerup.id %>
+        <%= f.submit "Send Tweet" %>
+      <% end %>
     <% end %>
-  <% end %>
+   
+    <%= link_to 'Edit Cheerup', edit_cheerup_path(@cheerup) %>
+    <%= link_to 'Delete Cheerup', @cheerup, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
 <% end %>
 
 

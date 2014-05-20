@@ -25,7 +25,7 @@ nav li {
 }
 .cheerup {
   border: 1px solid black;
-  margin: 10px;
+  margin: 0px;
   display: inline-block;
 }
 
@@ -85,4 +85,25 @@ h1 {
 h2 {
   font-size: 24px;
 }
-
+#new_cheerups {
+  display: inline-block;
+  width: 640px;
+  vertical-align: top;
+}
+#best_cheerups{
+  display: inline-block;
+  width: 300px;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px;
+}
+#best_cheerupers{
+  display: inline-block;
+  width: 300px; 
+  padding: 10px;
+  text-align: center;
+}
+#sidebar {
+  display: inline-block;
+  width: 300px; 
+}

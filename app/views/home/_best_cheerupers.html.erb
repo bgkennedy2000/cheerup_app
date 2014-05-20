@@ -1,0 +1,19 @@
+<h1>Best Cheerupers</h1>
+
+<ul>
+  <% @best_cheerupers.each do |user| %>
+    <li>
+      Username: <%= link_to user.username, user %>
+    </li>
+    <li>
+      Location: 
+      <%= user.location %> 
+    </li>
+    <li>
+      Rating: 
+      <%= user.rating %> 
+    </li>
+    <li><%= image_tag user.profile_pic.thumb.url %>
+    </li>
+  <% end %>
+</ul>
