@@ -13,23 +13,22 @@
 <header>
 
   <nav>
-  <div class='login'>
     <% if current_user %>
-      Hello, <%= current_user.username %>
-      <%= link_to 'Profile', current_user %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      <div class='create-cheerup'>
-      <%= link_to "new cheerup", new_cheerup_path %>
-      <%= link_to 'Home', root_path %>
-      </div>
-      <%= link_to 'All Cheerups', cheerups_path %>
-      <%= link_to 'Search for other Cheeruppers', users_path %>
-      
+      <ul>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to "New cheerup", new_cheerup_path %></li>
+        <li><%= link_to 'Cheerups', cheerups_path %></li>
+        <li><%= link_to 'Cheeruppers', users_path %></li>
+        <li>Hello, <%= current_user.username %></li>
+        <li><%= link_to 'Profile', current_user %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      </ul>
     <% else %>
+    <div class='login'>
       <%= link_to "Sign In", new_user_session_path %>
       <%= link_to "Register", new_user_registration_path %>
+    </div>
     <% end %>
-  </div>
   
   </nav>
   
