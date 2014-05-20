@@ -1,5 +1,9 @@
-this is an index page for all users. what to do with it. do we even want a index page where to see all users?
-perhaps useful for searching users.
+
+<h1>All users</h1>
+
+<p>
+  Note: Do we even want a index page where to see all users? Perhaps useful for searching users.
+<p>
 
 
 <!-- # <%#= search_form_for @q do |f| %>
@@ -10,13 +14,12 @@ perhaps useful for searching users.
 #   </p>
 # <%# end %> -->
 
-<div>
-  <ul>
-<li><% @users.each do |user| %>
-<%= image_tag user.profile_pic.thumb.url %>
-<%= link_to user.username, user %>
-<%= user.location %>
-</li>
-<% end %>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      Username: <%= link_to user.username, user %>
+      Location: <%= user.location %> 
+      <%= image_tag user.profile_pic.thumb.url %>
+    </li>
+  <% end %>
 </ul>
-</div>

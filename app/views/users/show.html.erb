@@ -1,38 +1,32 @@
-this is my profile
+<h1>Profile</h1>
 
 <p>
-  <b>
   <%= image_tag @user.profile_pic.details.url %>
-  </b>
-</p>
-
-<div>
-  <%= @user.username %>
-</div>
-
-<p>
-  <%= @user.location %>
 </p>
 
 <p>
-  <%= @user.tagline %>
+  Username: <%= @user.username %>
 </p>
 
 <p>
-  Cheerups<br>
-  <% @user.cheerups.each do |cheerup| %>
-    <%= link_to cheerup_path(cheerup) do %>
+  Location: <%= @user.location %>
+</p>
+
+<p>
+  Tagline: <%= @user.tagline %>
+</p>
+
+<h2>Cheerups</h2>
+  
+<% @user.cheerups.each do |cheerup| %>
+  <%= link_to cheerup_path(cheerup) do %>
     <%= render cheerup %>
   <% end %>
-    <br>
-  <% end %>
-</p>
-
-
+<% end %>
 
 
 <% if can? :update, @user %>
-  <%= link_to 'Edit Profile', edit_user_path(@user) %>
+  <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
 <% end %> 
 
 
