@@ -29,11 +29,17 @@ header, .main {
 }
 
 
-.rate img {
+.flag, .like {
   width: 40px;
   height: 40px;
   padding-right: 10px;
   padding-left: 10px;
+}
+.flag {
+  background-image:url('app/assets/images/flag.jpg');
+}
+.like {
+     background-image:url('app/assets/images/like.png');
 }
 
 .display:hover {

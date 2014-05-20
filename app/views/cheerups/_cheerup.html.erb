@@ -8,8 +8,8 @@
     <% end %>
   </div>
   <div class="rate">
-    <%= image_tag "flag.jpg" %>  
-    <%= image_tag "like.png" %>    
+    <%= button_to "flag", feedbacks_path(cheerup_id: cheerup.id, kind: "flag"), class: "flag" %>
+    <%= button_to "like", feedbacks_path(cheerup_id: cheerup.id, kind: "like"), class: "like" %>   
   </div>
 </div>
 
