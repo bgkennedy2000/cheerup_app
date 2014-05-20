@@ -1,5 +1,7 @@
 <h1>Profile</h1>
-
+<% if can? :update, @user %>
+  <p><%= link_to 'Edit', edit_user_path(@user) %></p>
+<% end %> 
 <p>
   <%= image_tag @user.profile_pic.details.url %>
 </p>
@@ -25,9 +27,7 @@
 <% end %>
 
 
-<% if can? :update, @user %>
-  <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
-<% end %> 
+
 
 
 
