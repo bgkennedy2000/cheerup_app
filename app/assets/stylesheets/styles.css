@@ -1,6 +1,3 @@
-* {
-  border: 1px dotted black;
-}
 body {
   font-family: Helvetica;
 }
@@ -37,13 +34,15 @@ header, .main {
 .flag, .like {
     width: 50px;
     height: 50px;
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    border: 0;
 }
 .flag {
   background-image:url('/assets/flag.jpg');
   background-size:cover;
 }
 .like {
-  background-image:url('/assets/like.png');
+  background-image:url('/assets/like.jpg');
   background-size:cover;
 }
 
