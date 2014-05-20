@@ -21,9 +21,15 @@ this is my profile
 <p>
   Cheerups<br>
   <% @user.cheerups.each do |cheerup| %>
-    <%= link_to cheerup, cheerup_path(cheerup) %><br>
+    <%= link_to cheerup_path(cheerup) do %>
+    <%= image_tag cheerup.image_url %>
+    <% end %>
+    <br>
   <% end %>
 </p>
+
+
+
 
 <% if can? :update, @user %>
   <%= link_to 'Edit Profile', edit_user_path(@user) %>
