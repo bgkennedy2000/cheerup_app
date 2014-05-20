@@ -10,7 +10,8 @@ end
 
   resources :cheerups
   resources :users
-
+  get '/home', to: 'home#index'
+  
   root :to => 'application#index'
 
 

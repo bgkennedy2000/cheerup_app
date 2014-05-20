@@ -12,6 +12,31 @@ header, .main {
 
 }
 .cheerup {
-    border: 1px solid black;
-    margin: 10px;
+  border: 1px solid black;
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+}
+
+.cheerup img {
+  width: 200px;
+  height: 200px;
+}
+
+.cheerup:hover {
+  opacity:0.4;
+}
+
+.cheerup a {
+  color: black;
+  text-decoration: none;
+}
+
+.message
+{
+  position:relative;
+  top:-100px;
+  padding: 10px;
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
 }

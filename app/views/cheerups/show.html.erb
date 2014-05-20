@@ -1,10 +1,9 @@
 
 <div>
-  <p><%= @cheerup.user.username %></p>
+  <p>Username:<%= @cheerup.user.username %></p>
 </div>
 
-<p><img src="<%= @cheerup.image_url %>"></p>
-<p><%= @cheerup.message %></p>
+<%= render @cheerup %>
 
 <% if can? :update, @cheerup %>
   <%= link_to 'Edit Cheerup', edit_cheerup_path(@cheerup) %>
@@ -13,5 +12,9 @@
 
 
 
+<% if can? :update, @cheerup %>
+  <%= link_to 'Edit Cheerup', edit_cheerup_path(@cheerup) %>
+<% end %> 
 
-<%= link_to 'Back', root_path %>
+
+<p><%= link_to 'Back', root_path %></p>

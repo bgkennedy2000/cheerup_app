@@ -1,10 +1,9 @@
 
-<% @cheerups.each do |cheerup| %>
-  <%= link_to cheerup.user.username, user_path(cheerup.user) %>
-  <div class="cheerup">
-    <p><img src="<%= cheerup.image_url %>"></p>
-  </div>
-<% end %>
 
 
-<%= link_to 'Back', root_path %>
+    <%= render @cheerups %>
+
+
+
+
+<p><%= link_to 'Back', root_path %></p>
