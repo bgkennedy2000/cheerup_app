@@ -16,7 +16,6 @@ class Cheerup < ActiveRecord::Base
   
   mount_uploader :image_file, CheerupImageUploader
 
-  after_initialize :defaults
   before_validation :clear_image_file_if_image_url_given
 
   def likes_count
@@ -25,10 +24,6 @@ class Cheerup < ActiveRecord::Base
 
   def flags_count
     self.feedbacks.where(kind: "flag").count
-  end
-
-  def defaults
-    self.image_url ||= 'none'
   end
 
   def tweet

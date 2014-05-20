@@ -1,0 +1,33 @@
+= content_for :head do
+  = javascript_include_tag "cheerups"
+
+%section#cheerup_modal
+  %h2 Add Image
+  = form_for(@cheerup) do |f|
+    = if @cheerup.errors.any?
+      %div#error_explanation
+        %h2 
+          = pluralize(@cheerup.errors.count, "error")
+          prohibited this cheerup from being saved:
+        %ul
+          = @cheerup.errors.full_messages.each do |msg|
+            %li 
+              = msg
+    %div#image_selector
+      %div.field
+        = f.label "url"
+        %br
+        = f.text_field :image_url
+      %div.field
+        = f.label "upload file"
+        %br
+        = f.file_field :image_file
+    %div#canvas{data: @cheerup.calculated_image_url}
+    %div.field
+      = f.label :message
+      %br
+      = f.text_field :message
+      = f.hidden_field :state, value: "published"
+    %div.action
+      = f.submit "Post"
+ 
