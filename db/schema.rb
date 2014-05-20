@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140518192214) do
+ActiveRecord::Schema.define(:version => 20140520135412) do
 
   create_table "cheerups", :force => true do |t|
     t.string   "image_url"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20140518192214) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "image_file"
   end
 
   create_table "feedbacks", :force => true do |t|
