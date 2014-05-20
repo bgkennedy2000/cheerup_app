@@ -8,7 +8,13 @@
 <% if can? :update, @cheerup %>
   <%= link_to 'Edit Cheerup', edit_cheerup_path(@cheerup) %>
   <%= link_to 'Delete Cheerup', @cheerup, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %> 
+
+<% if current_user && current_user.provider == "twitter" && current_user.id == @cheerup.user.id %>
+  <%= form_for :tweet, url: tweets_path, method: :post do |f| %>
+    <%= f.hidden_field :cheerup_id, value: @cheerup.id %>
+    <%= f.submit "Send Tweet" %>
+  <% end %>
+<% end %>
 
 
 

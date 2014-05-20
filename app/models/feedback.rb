@@ -7,4 +7,5 @@ class Feedback < ActiveRecord::Base
   validates :cheerup_id, presence: true
   validates :user_id, presence: true
   validates :kind, :inclusion => {:in => ["like", "flag"]}
+  validates :user_id, :uniqueness => { :scope => :cheerup_id }
 end
