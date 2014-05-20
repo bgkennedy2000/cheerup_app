@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :role, :inclusion => {:in => ["admin", "user", "banned", "guest"]}
 
-  #mount_uploader :image_file, CheerupImageUploader
+  mount_uploader :profile_pic, ProfileImageUploader
 
   after_initialize :defaults
 
