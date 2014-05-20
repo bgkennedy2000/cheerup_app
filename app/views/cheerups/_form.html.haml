@@ -1,3 +1,6 @@
+= content_for :head do
+  = javascript_include_tag "kinetic-v5.1.0.min.js"
+  = javascript_include_tag "cheerups.js", defer: "defer"
 
 %section#cheerup_modal
   %h2 Add Image
@@ -21,11 +24,14 @@
         %br
         = f.file_field :image_file
     %div#canvas{data: @cheerup.calculated_image_url}
-    %div.field
-      = f.label :message
-      %br
-      = f.text_field :message
-      = f.hidden_field :state, value: "published"
+    = if @cheerup.calculated_image_url
+      %div.field
+        = f.label :message
+        %br
+        = f.text_field :message
+        = f.hidden_field :state, value: "published"
     %div.action
-      = f.submit "Post"
- 
+      - if @cheerup.calculated_image_url
+        = f.submit "Post Cheerup"
+      - else
+        = f.submit "Update Image"

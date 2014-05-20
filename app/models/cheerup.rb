@@ -4,11 +4,11 @@ class Cheerup < ActiveRecord::Base
   belongs_to :user
   has_many :feedbacks
 
-  validates :message, presence: true
   validates_length_of :message, maximum: 141 
   validates :user_id, presence: true
-  validate  :only_one_of_image_url_and_image_file
-  validates :state, :inclusion => {:in => ["flagged", "banned", "published"]}
+  validate  :only_one_of_image_url_and_image_file_and_published
+  validate :message_and_published
+  validates :state, :inclusion => {:in => ["flagged", "banned", "published", "draft"]}
 
   scope :bans, -> { where(state: "banned") }
   scope :flags, -> { where(state: "flagged") }
@@ -19,16 +19,16 @@ class Cheerup < ActiveRecord::Base
   after_initialize :defaults
   before_validation :clear_image_file_if_image_url_given
 
+  def defaults
+    self.state = "draft"
+  end
+
   def likes_count
     self.feedbacks.where(kind: "like").count
   end
 
   def flags_count
     self.feedbacks.where(kind: "flag").count
-  end
-
-  def defaults
-    self.image_url ||= 'none'
   end
 
   def rating
@@ -59,8 +59,17 @@ class Cheerup < ActiveRecord::Base
   end
 
   private
-  def only_one_of_image_url_and_image_file
-    errors.add :base, "you can only include an image or an image url" if image_file_url.present? && image_url.present? 
+  def message_and_published
+    if self.state != 'draft'
+      errors.add :base, "you must include a message to publish a cheerup" if message.nil? 
+    end
+  end
+
+
+  def only_one_of_image_url_and_image_file_and_published
+    if self.state != 'draft'
+      errors.add :base, "you can only include an image or an image url" if image_file_url.present? && image_url.present? 
+    end
   end
 
   private
