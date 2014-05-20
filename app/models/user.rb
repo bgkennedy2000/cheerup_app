@@ -79,6 +79,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  def rating
+    rating = 0
+
+    feedbacks.each do |feedback|
+      if feedback.kind == "like"
+        rating += 1
+      elsif feedback.kind == "flag"
+        rating -= 1
+      end
+    end
+    return rating
+  end
+
 end
 
 

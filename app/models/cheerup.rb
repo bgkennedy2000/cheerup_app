@@ -31,6 +31,19 @@ class Cheerup < ActiveRecord::Base
     self.image_url ||= 'none'
   end
 
+  def rating
+    rating = 0
+
+    feedbacks.each do |feedback|
+      if feedback.kind == "like"
+        rating += 1
+      elsif feedback.kind == "flag"
+        rating -= 1
+      end
+    end
+    return rating
+  end
+
   def tweet
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['CHEERUP_APP_TWITTER_API_KEY']

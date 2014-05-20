@@ -9,6 +9,7 @@
   </div>
   <div class="rate">
     <%= button_to "flag", feedbacks_path(cheerup_id: cheerup.id, kind: "flag"), class: "flag" %>
-    <%= button_to "like", feedbacks_path(cheerup_id: cheerup.id, kind: "like"), class: "like" %>   
+    <%= button_to "like", feedbacks_path(cheerup_id: cheerup.id, kind: "like"), class: "like" %>
+    Rating: <%= cheerup.rating %>  
   </div>
 </div>
