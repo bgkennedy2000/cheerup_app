@@ -113,14 +113,6 @@ nav li {
   text-decoration: none;
 }
 
-.message
-{
-  position:relative;
-  top:150px;
-  padding: 10px;
-  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-}
-
 h1, h2, p {
   padding-top: 4px;
   padding-bottom: 10px;
