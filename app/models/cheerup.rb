@@ -25,7 +25,7 @@ class Cheerup < ActiveRecord::Base
   def update_cheerup_attributes(params)
     image_data = params.delete(:image_data)
     if update_attributes(params)
-      path = "#{Rails.root}/public/uploads/composite_image_file/#{self.id}/composite_image.png"
+      path = "#{Rails.root}/public/composite_image_file/#{self.id}/composite_image.png"
       make_dir_if_none_exists(path)
       create_image_from_data(image_data, path)
       true
@@ -46,7 +46,7 @@ class Cheerup < ActiveRecord::Base
   def process_image
     if image_url
       new_image = ImageList.new(image_url)
-      relative_location = "/uploads/cheerup/image_file/#{self.id}/image.#{new_image.format.downcase}"
+      relative_location = "/captured_image_file/#{self.id}/image.#{new_image.format.downcase}"
       new_file_location = "#{Rails.root}/public" + relative_location
       make_dir_if_none_exists(new_file_location)
       new_image.write(new_file_location)
@@ -54,8 +54,8 @@ class Cheerup < ActiveRecord::Base
     end
    end
 
-  def make_dir_if_none_exists(path)
-    dirname = File.dirname(path)
+  def make_dir_if_none_exists(file_path)
+    dirname = File.dirname(file_path)
     unless File.directory?(dirname)
       FileUtils.mkdir_p(dirname)
     end
