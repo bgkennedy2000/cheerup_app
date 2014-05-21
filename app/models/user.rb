@@ -96,7 +96,7 @@ class User < ActiveRecord::Base
       config.access_token        = oauth_token
       config.access_token_secret = oauth_secret
     end
-    client.update(cheerup.message)  
+    client.update_with_media(cheerup.message, File.new("./public"+cheerup.calculated_image_url)) 
   end
 
 end
