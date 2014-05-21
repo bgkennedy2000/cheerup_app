@@ -45,7 +45,7 @@ class Cheerup < ActiveRecord::Base
   end
 
   def process_image
-    #note: need to detrmin if image_url is valid or else Rmagick crashes the server
+    #note: need to implement error handling for imageList
     if image_url && image_url != ""
       new_image = ImageList.new(image_url)
       relative_location = "/captured_image_file/#{self.id}/image.#{new_image.format.downcase}"
