@@ -13,7 +13,7 @@
   <div class="display">
     <%= link_to @cheerup do %>
       <div class="featured_cheerup_image">
-        <img src="<%= @cheerup.calculated_image_url %>">
+        <%= image_tag @cheerup.calculated_image_url %>
       </div>
     <% end %>
   </div>

@@ -15,11 +15,8 @@
     <% if current_user %>
       <ul>
         <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to "New cheerup", new_cheerup_path %></li>
-        <li><%= link_to 'Cheerups', cheerups_path %></li>
-        <li><%= link_to 'Cheeruppers', users_path %></li>
-        <li>Hello, <%= current_user.username %></li>
-        <li><%= link_to 'Profile', current_user %></li>
+        <li><%= image_tag "cheerup_logo.png" %></li><li><%= link_to image_tag("smiley-face.png"), new_cheerup_path %></li>
+        <li><%= link_to current_user.username, current_user %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
     <% else %>
@@ -36,15 +33,16 @@
 
 <body>
 
-<div class="main">
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <div class="notice"><%= notice %></div>
+  <div class="alert"><%= alert %></div>
   
 
   <%= yield %>
 
-</div>
+<footer>
+  Cheerup 2014
+</footer>
 
 </body>
 </html>
