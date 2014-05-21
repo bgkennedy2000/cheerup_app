@@ -25,10 +25,11 @@ class Cheerup < ActiveRecord::Base
   def update_cheerup_attributes(params)
     image_data = params.delete(:image_data)
     if update_attributes(params)
-      path = "#{Rails.root}/public/composite_image_file/#{self.id}/composite_image.png"
+      relative_location = "/composite_image_file/#{self.id}/composite_image.png"
+      path = "#{Rails.root}/public" + relative_location
       make_dir_if_none_exists(path)
       create_image_from_data(image_data, path)
-      true
+      self.update_attribute(:image_url, relative_location)
     else
       false
     end
@@ -44,7 +45,8 @@ class Cheerup < ActiveRecord::Base
   end
 
   def process_image
-    if image_url
+    #note: need to detrmin if image_url is valid or else Rmagick crashes the server
+    if image_url && image_url != ""
       new_image = ImageList.new(image_url)
       relative_location = "/captured_image_file/#{self.id}/image.#{new_image.format.downcase}"
       new_file_location = "#{Rails.root}/public" + relative_location
