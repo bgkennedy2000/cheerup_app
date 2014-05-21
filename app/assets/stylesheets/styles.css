@@ -115,6 +115,13 @@ h2 {
   text-align: center;
 }
 
+.last, .next {
+  font-size: 100px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px dotted black;
+}
+
 
 @media (max-width: 480px) {
   nav li {

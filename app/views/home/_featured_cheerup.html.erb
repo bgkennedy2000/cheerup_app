@@ -2,7 +2,26 @@
 
 <p>Featured cheerup partial</p>
 
+<div class="last">
+  &#9664;
+</div>
 
-<div class="featured_cheerup_image">
-  <%= link_to image_tag(@featured_cheerup.calculated_image_url), @featured_cheerup %>
+<div class="cheerup">
+  <div class="display">
+    <%= link_to @cheerup do %>
+      <div class="message">
+        <%= @cheerup.message %>
+      </div>
+      <img class="featured_cheerup_image" src="<%= @cheerup.calculated_image_url %>">
+    <% end %>
+  </div>
+  <div class="rate">
+    <%= button_to "flag", feedbacks_path(cheerup_id: @cheerup.id, kind: "flag"), class: "flag" %>
+    <%= button_to "like", feedbacks_path(cheerup_id: @cheerup.id, kind: "like"), class: "like" %>
+    Rating: <%= @cheerup.rating %>
+  </div>
+</div>
+
+<div class="next">
+  &#9654;
 </div>
