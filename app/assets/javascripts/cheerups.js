@@ -1,28 +1,36 @@
-editor = {} || editor;
+$( document ).ready( function() {
 
-editor.layer = new Kinetic.Layer();
+  editor = {} || editor;
 
-editor.imageObj = new Image();
-editor.imageObj.onload = function() {
-   editor.image = new Kinetic.Image({
-    x: 10,
-    y: 10,
-    image: editor.imageObj,
-    width: 400,
-    height: 400
-  });
-}
+  editor.layer = new Kinetic.Layer();
 
-editor.message = function() {
-  return $('#cheerup_message').val();
-}
+  editor.imageObj = new Image();
+  editor.imageObj.onload = function() {
+    editor.image = new Kinetic.Image({
+      x: 0,
+      y: 0,
+      image: editor.imageObj,
+      width: 400,
+      height: 400
+    });
+    if(editor.image) {
+
+      editor.layer.add(editor.image);
+      updateText();
+      editor.layer.add(editor.simpleText)
+      editor.stage.add(editor.layer);
+    }
+  }
+  editor.message = function() {
+    return $('#cheerup_message').val();
+  };
 
 updateText = function() {
   editor.simpleText = new Kinetic.Text({
     x: editor.stage.width() / 2,
     y: 200,
     width: 200,
-    text: editor.message(),
+    text: "test",
     fontSize: 55,
     fontStyle: 'bold',
     fontFamily: 'Calibri',
@@ -37,13 +45,13 @@ updateText = function() {
 
 
 
-editor.createData = function() {
-  var canvas = $('canvas')[0];
-  editor.dataToServer = canvas.toDataURL('image/png');
-  $('#datainput').val(editor.dataToServer);
-}
+  editor.createData = function() {
+    var canvas = $('canvas')[0];
+    editor.dataToServer = canvas.toDataURL('image/png');
+    $('#datainput').val(editor.dataToServer);
+  };
 
-// editor.simpleText.offsetX(editor.simpleText.width()/2);
+  // editor.simpleText.offsetX(editor.simpleText.width()/2);
 
   editor.stage = new Kinetic.Stage({
     container: 'canvas',
@@ -52,26 +60,18 @@ editor.createData = function() {
   });
 
 
-if (editor.image) {
-  editor.layer.add(editor.image);
-  updateText();
-  editor.layer.add(editor.simpleText)
-  editor.stage.add(editor.layer);
-}
+  if ($('#canvas').attr('data')) {
+    editor.imageObj.src = $('#canvas').attr('data');
+  };
 
-
-
-
-if ($('#canvas').attr('data')) {
-  editor.imageObj.src = $('#canvas').attr('data');
-} 
-
-editor.setup = function() {
+  editor.setup = function() {
    $('#message').keyup(function() {
-       editor.simpleText.setText(editor.message());
-       editor.layer.draw();
-       editor.createData();
-  });
-}
+         editor.simpleText.setText(editor.message());
+         editor.layer.draw();
+         editor.createData();
+       });
+ }
 
-$(editor.setup);
+ editor.setup();
+
+});
