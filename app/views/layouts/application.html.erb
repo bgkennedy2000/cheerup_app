@@ -15,7 +15,8 @@
     <% if current_user %>
       <ul>
         <li><%= link_to 'Home', root_path %></li>
-        <li><%= image_tag "cheerup_logo.png" %></li><li><%= link_to image_tag("smiley-face.png"), new_cheerup_path %></li>
+        <li><%= image_tag "cheerup_logo.png" %></li>
+        <li><%= link_to image_tag("smiley-face.png"), new_cheerup_path %></li>
         <li><%= link_to current_user.username, current_user %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
