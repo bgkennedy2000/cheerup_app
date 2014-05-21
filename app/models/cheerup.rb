@@ -1,5 +1,5 @@
 class Cheerup < ActiveRecord::Base
-  attr_accessible :user_id, :image_url, :message, :state, :image_file
+  attr_accessible :user_id, :image_url, :message, :state, :image_file, :image_data
 
   belongs_to :user
   has_many :feedbacks
@@ -22,6 +22,18 @@ class Cheerup < ActiveRecord::Base
   include FileUtils
   include Magick
 
+  def update_cheerup_attributes(params)
+    image_data = params.delete(:image_data)
+    if update_attributes(params)
+      path = "#{Rails.root}/public/uploads/composite_image_file/#{self.id}/composite_image.png"
+      make_dir_if_none_exists(path)
+      create_image_from_data(image_data, path)
+      true
+    else
+      false
+    end
+  end
+
   def make_cheerup
     if save
       process_image
@@ -34,10 +46,11 @@ class Cheerup < ActiveRecord::Base
   def process_image
     if image_url
       new_image = ImageList.new(image_url)
-      new_file_location = "#{Rails.root}/public/uploads/cheerup/image_file/#{self.id}/image.#{new_image.format.downcase}"
+      relative_location = "/uploads/cheerup/image_file/#{self.id}/image.#{new_image.format.downcase}"
+      new_file_location = "#{Rails.root}/public" + relative_location
       make_dir_if_none_exists(new_file_location)
       new_image.write(new_file_location)
-      redefine_image_url(new_file_location)
+      self.image_url = relative_location
     end
    end
 
@@ -48,15 +61,11 @@ class Cheerup < ActiveRecord::Base
     end
   end
 
-  def redefine_image_url(path)
-    image_url = path
-  end
-
-  def image_data(data)
+  def create_image_from_data(data, path)
     # decode data and remove junk at bigging of base64 file
     image_data = Base64.decode64(data['data:image/png;base64,'.length .. -1])
 
-    File.open("#{Rails.root}/public/uploads/composite_image/cheerup#{self.id}.png", 'wb') do |f|
+    File.open(path, 'wb') do |f|
       f.write image_data
     end
   end

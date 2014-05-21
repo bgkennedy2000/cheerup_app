@@ -50,7 +50,7 @@ class CheerupsController < ApplicationController
     @cheerup = Cheerup.find(params[:id])
 
     respond_to do |format|
-      if @cheerup.update_attributes(params[:cheerup])
+      if @cheerup.update_cheerup_attributes(params[:cheerup])
         format.html { redirect_to @cheerup, notice: 'Cheerup was successfully updated.' }
         format.json { head :no_content }
       else
