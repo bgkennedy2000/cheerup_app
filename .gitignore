@@ -14,3 +14,5 @@
 /log/*.log
 /tmp
 /public/uploads
+public/captured_image_file/
+public/composite_image_file/

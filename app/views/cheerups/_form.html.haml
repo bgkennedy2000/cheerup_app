@@ -4,7 +4,7 @@
 
 %section#cheerup_modal
   = form_for(@cheerup) do |f|
-    = if @cheerup.errors.any?
+    - if @cheerup.errors.any?
       %div#error_explanation
         %h2 
           = pluralize(@cheerup.errors.count, "error")
@@ -13,7 +13,7 @@
           = @cheerup.errors.full_messages.each do |msg|
             %li 
               = msg
-    = if @cheerup.calculated_image_url.nil?
+    - if @cheerup.calculated_image_url.nil?
       %h2 Add Image
       %div#image_selector
         %div.field
@@ -25,7 +25,7 @@
           %br
           = f.file_field :image_file
 
-    = if @cheerup.calculated_image_url
+    - if @cheerup.calculated_image_url
       %h2 Add Message
       %div.field
         = f.label :message
@@ -35,7 +35,7 @@
         = f.hidden_field :image_data, value: ""
     %div.action
       - if @cheerup.calculated_image_url
-        = f.submit "Post Cheerup"
+        = f.submit "Post Cheerup", id: "submit"
       - else
-        = f.submit "Update Image"
+        = f.submit "Update Image", id: "submit"
     %div#canvas{data: @cheerup.calculated_image_url}

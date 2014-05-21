@@ -27,21 +27,24 @@ $( document ).ready( function() {
     return $('#cheerup_message').val();
   };
 
+
 updateText = function() {
   editor.simpleText = new Kinetic.Text({
     x: editor.stage.width() / 2,
     y: editor.stage.height() / 2,
-    width: 200,
+    width: editor.stage.width() * 0.8,
     text: "",
-    fontSize: 55,
+    fontSize: 35,
     fontStyle: 'bold',
-    fontFamily: 'Calibri',
+    fontFamily: 'Helvetica',
     fill: 'black',
-    strokeWidth: 2,
+    strokeWidth: 1,
     strokeRed: 255,
     strokeBlue: 255,
     strokeGreen: 255,
-    wrap: 'word'
+    wrap: 'word',
+    align: 'center',
+    draggable: true
   });
 }
 
@@ -73,8 +76,16 @@ updateText = function() {
          editor.simpleText.offsetY(editor.simpleText.height()/2);
          editor.layer.draw();
          editor.stage.draw();
-         editor.createData();
        });
+    $('#submit').mousedown(function() {
+        var x = editor.simpleText.getAbsolutePosition()["x"];
+        var y = editor.simpleText.getAbsolutePosition()["y"];
+        editor.simpleText.setAttr("x", x);
+        editor.simpleText.setAttr("y", y);
+        editor.layer.draw();
+        editor.stage.draw();
+        editor.createData();
+    })
  }
 
  editor.setup();
