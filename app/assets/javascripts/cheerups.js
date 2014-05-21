@@ -13,6 +13,8 @@ $( document ).ready( function() {
       width: 400,
       height: 400
     });
+  
+
     if(editor.image) {
 
       editor.layer.add(editor.image);
@@ -30,7 +32,7 @@ updateText = function() {
     x: editor.stage.width() / 2,
     y: editor.stage.height() / 2,
     width: 200,
-    text: "test",
+    text: "",
     fontSize: 55,
     fontStyle: 'bold',
     fontFamily: 'Calibri',
@@ -70,6 +72,7 @@ updateText = function() {
          editor.simpleText.offsetX(editor.simpleText.width()/2);
          editor.simpleText.offsetY(editor.simpleText.height()/2);
          editor.layer.draw();
+         editor.stage.draw();
          editor.createData();
        });
  }

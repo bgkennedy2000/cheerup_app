@@ -3,7 +3,6 @@
   = javascript_include_tag "cheerups.js", defer: "defer"
 
 %section#cheerup_modal
-  %h2 Add Image
   = form_for(@cheerup) do |f|
     = if @cheerup.errors.any?
       %div#error_explanation
@@ -14,17 +13,20 @@
           = @cheerup.errors.full_messages.each do |msg|
             %li 
               = msg
-    %div#image_selector
-      %div.field
-        = f.label "url"
-        %br
-        = f.text_field :image_url
-      %div.field
-        = f.label "upload file"
-        %br
-        = f.file_field :image_file
-    %div#canvas{data: @cheerup.calculated_image_url}
+    = if @cheerup.calculated_image_url.nil?
+      %h2 Add Image
+      %div#image_selector
+        %div.field
+          = f.label "url"
+          %br
+          = f.text_field :image_url
+        %div.field
+          = f.label "upload file"
+          %br
+          = f.file_field :image_file
+
     = if @cheerup.calculated_image_url
+      %h2 Add Message
       %div.field
         = f.label :message
         %br
@@ -35,3 +37,4 @@
         = f.submit "Post Cheerup"
       - else
         = f.submit "Update Image"
+    %div#canvas{data: @cheerup.calculated_image_url}
