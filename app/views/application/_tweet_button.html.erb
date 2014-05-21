@@ -1,4 +1,4 @@
-<% if current_user && current_user.provider == "twitter" && current_user.id == @cheerup.user.id %>
+<% if current_user && current_user.provider == "twitter" %>
   <%= form_for :tweet, url: tweets_path, method: :post, class: "tweet_form" do |f| %>
     <%= f.hidden_field :cheerup_id, value: @cheerup.id %>
     <%= f.submit "Tweet" %>

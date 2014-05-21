@@ -4,15 +4,14 @@
 <%= render @cheerup %>
 
 <% if can? :update, @cheerup %>
-  <p>
-    <%= render partial: 'tweet_button' %>
    
+  <p>
     <%= link_to 'Edit Cheerup', edit_cheerup_path(@cheerup) %>
     <%= link_to 'Delete Cheerup', @cheerup, method: :delete, data: { confirm: 'Are you sure?' } %>
   </p>
 <% end %>
-
-
-
+<p>
+<%= render partial: 'tweet_button' %>
+</p>
 
 <p><%= link_to 'Back', root_path %></p>
