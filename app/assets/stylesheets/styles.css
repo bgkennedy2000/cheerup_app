@@ -1,3 +1,7 @@
+* {
+  border: 1px dotted black;
+}
+
 body {
   font-family: Helvetica;
   background-color: #9BF57B;
@@ -21,7 +25,7 @@ nav li {
 
 .main {
   margin: 20px auto;
-  width: 960px;
+  max-width: 960px;
 }
 .cheerup {
   border: 1px solid black;
@@ -58,7 +62,7 @@ nav li {
   background-size:cover;
 }
 
-.display:hover, .flag:hover, .like:hover {
+.display:hover, .flag:hover, .like:hover, .cheeruper:hover {
   opacity:0.4;
 }
 
@@ -87,23 +91,28 @@ h2 {
 }
 #new_cheerups {
   display: inline-block;
-  width: 640px;
+  max-width: 640px;
   vertical-align: top;
 }
 #best_cheerups{
   display: inline-block;
-  width: 300px;
+  max-width: 300px;
   margin-bottom: 10px;
   text-align: center;
   padding: 10px;
 }
 #best_cheerupers{
   display: inline-block;
-  width: 300px; 
+  max-width: 300px; 
   padding: 10px;
-  text-align: center;
 }
 #sidebar {
   display: inline-block;
-  width: 300px; 
+  width: 300px;
+  text-align: right; 
+}
+.cheeruper {
+  margin: 6px;
+  border: 1px solid black;
+  text-align: center;
 }
