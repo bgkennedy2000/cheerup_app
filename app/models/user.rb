@@ -88,6 +88,17 @@ class User < ActiveRecord::Base
     return rating
   end
 
+  def tweet(cheerup)
+
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV['CHEERUP_APP_TWITTER_API_KEY']
+      config.consumer_secret     = ENV['CHEERUP_APP_TWITTER_API_SECRET']
+      config.access_token        = oauth_token
+      config.access_token_secret = oauth_secret
+    end
+    client.update(cheerup.message)  
+  end
+
 end
 
 

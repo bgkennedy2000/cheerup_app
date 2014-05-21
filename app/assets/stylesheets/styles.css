@@ -1,7 +1,3 @@
-* {
-  border: 1px dotted black;
-}
-
 body {
   font-family: Helvetica;
   background-color: #9BF57B;
@@ -112,7 +108,7 @@ nav li {
   opacity:0.4;
 }
 
-.display a {
+.cheerup a, #featured_cheerup a {
   color: black;
   text-decoration: none;
 }
@@ -135,11 +131,14 @@ h1 {
 h2 {
   font-size: 24px;
 }
-#new_cheerups {
+#featured_cheerup {
   display: inline-block;
-  max-width: 640px;
+  width: 640px;
   vertical-align: top;
 }
+.featured_cheerup_image img{
+    width: 400px;
+  }
 #best_cheerups{
   display: inline-block;
   max-width: 300px;
@@ -149,16 +148,37 @@ h2 {
 }
 #best_cheerupers{
   display: inline-block;
-  max-width: 300px; 
+  max-width: 240px; 
   padding: 10px;
 }
 #sidebar {
   display: inline-block;
-  width: 300px;
-  text-align: right; 
+  max-width: 240px;
 }
 .cheeruper {
   margin: 6px;
   border: 1px solid black;
   text-align: center;
+}
+
+.previous, .next {
+  font-size: 100px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+@media (max-width: 480px) {
+  nav li {
+    display: block;
+    padding: 4px;
+  }
+  header, .main {
+    border: 0;
+    margin: 0px;
+    padding: 10px;
+  }
+  #featured_cheerup, .featured_cheerup_image img{
+    width: 200px;
+  }
 }

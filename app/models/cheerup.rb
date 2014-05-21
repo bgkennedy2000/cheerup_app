@@ -97,16 +97,6 @@ class Cheerup < ActiveRecord::Base
     return rating
   end
 
-  def tweet
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['CHEERUP_APP_TWITTER_API_KEY']
-      config.consumer_secret     = ENV['CHEERUP_APP_TWITTER_API_SECRET']
-      config.access_token        = user.oauth_token
-      config.access_token_secret = user.oauth_secret
-    end
-    client.update(message)  
-  end
-
   def calculated_image_url
     image_url.present? ? image_url : image_file_url
   end

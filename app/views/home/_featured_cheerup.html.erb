@@ -1,0 +1,39 @@
+<h1>Featured Cheerup</h1>
+
+<div class="previous">
+  <% if @page-1 >= 0 %>
+    <%= link_to home_path(page: @page-1) do %>
+      &#9664;
+    <% end %>
+  <% end %>
+
+</div>
+
+<div class="cheerup">
+  <div class="display">
+    <%= link_to @cheerup do %>
+      <div class="message">
+        <%= @cheerup.message %>
+      </div>
+      <div class="featured_cheerup_image">
+        <img src="<%= @cheerup.calculated_image_url %>">
+      </div>
+    <% end %>
+  </div>
+  <div class="rate">
+    <%= button_to "flag", feedbacks_path(cheerup_id: @cheerup.id, kind: "flag"), class: "flag" %>
+    <%= button_to "like", feedbacks_path(cheerup_id: @cheerup.id, kind: "like"), class: "like" %>
+    Rating: <%= @cheerup.rating %>
+  </div>
+
+  <%= render partial: 'tweet_button' %>
+</div>
+
+<div class="next">
+  <% if @page+1 <= @new_cheerups.count %>
+    <%= link_to home_path(page: @page+1) do %>
+      &#9654;
+    <% end %>
+  <% end %>
+</div>
+
