@@ -1,9 +1,9 @@
 <h1>Featured Cheerup</h1>
 
-<p>Featured cheerup partial</p>
-
-<div class="last">
-  &#9664;
+<div class="previous">
+  <%= link_to home_path(page: @page-1) do %>
+    &#9664;
+  <% end %>
 </div>
 
 <div class="cheerup">
@@ -12,7 +12,9 @@
       <div class="message">
         <%= @cheerup.message %>
       </div>
-      <img class="featured_cheerup_image" src="<%= @cheerup.calculated_image_url %>">
+      <div class="featured_cheerup_image">
+        <img src="<%= @cheerup.calculated_image_url %>">
+      </div>
     <% end %>
   </div>
   <div class="rate">
@@ -23,5 +25,8 @@
 </div>
 
 <div class="next">
-  &#9654;
+  <%= link_to home_path(page: @page+1) do %>
+    &#9654;
+  <% end %>
 </div>
+
