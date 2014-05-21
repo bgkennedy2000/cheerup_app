@@ -2,6 +2,11 @@
 <% if can? :update, @user %>
   <p><%= link_to 'Edit', edit_user_path(@user) %></p>
 <% end %> 
+
+<p>
+  <%= image_tag @user.cover_image_url %>
+</p>
+
 <p>
   <%= image_tag @user.profile_pic.details.url %>
 </p>
