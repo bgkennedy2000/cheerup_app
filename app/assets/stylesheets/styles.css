@@ -14,6 +14,51 @@ header, .main {
   padding: 20px;
 }
 
+#profile_header {
+  z-index: 2;
+}
+
+#cover {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 300px;
+  z-index: 0;
+}
+
+#cover img {
+  width: 100%;
+}
+
+#chicken_wrap {
+  position: absolute;
+  left: 50%;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+}
+
+.profile-details {
+  position: relative;
+  right: 50%;
+  width: 100%;
+  color: black;
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+
+.profile-details img {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+#cheerups {
+  width: 100%;
+  margin-top: 300px;
+}
+
 header {
   font-size: 24px;
 }
@@ -26,6 +71,7 @@ nav li {
 .main {
   margin: 20px auto;
   max-width: 960px;
+  position: relative;
 }
 .cheerup {
   border: 1px solid black;

@@ -1,30 +1,35 @@
-<h1>Profile</h1>
-<% if can? :update, @user %>
-  <p><%= link_to 'Edit', edit_user_path(@user) %></p>
-<% end %> 
-<p>
-  <%= image_tag @user.profile_pic.details.url %>
-</p>
+<!-- <div id="profile_header">
+  <h1>Profile</h1>
+  <%# if can? :update, @user %>
+    <p><%#= link_to 'Edit', edit_user_path(@user) %></p>
+  <%# end %> 
+</div> -->
 
-<p>
-  Username: <%= @user.username %>
-</p>
+<div id = "cover">
+  <%= image_tag @user.cover_image_url %>
+</div>
 
-<p>
-  Location: <%= @user.location %>
-</p>
+<div id="chicken_wrap">
+  <div class = "profile-details">  
+    <%= image_tag @user.profile_pic.details.url %>
+    <p><%= @user.username %></p>
+    <p><%= @user.location %></p>
+    <p><%= @user.tagline %></p>
+    <% if can? :update, @user %>
+    <p><%= link_to 'Edit', edit_user_path(@user) %></p>
+    <% end %> 
+  </div>
+</div>
 
-<p>
-  Tagline: <%= @user.tagline %>
-</p>
-
-<h2>Cheerups</h2>
-  
-<% @user.cheerups.each do |cheerup| %>
-  <%= link_to cheerup_path(cheerup) do %>
-    <%= render cheerup %>
+<div id='cheerups'>
+  <h2><%= @user.username %>'s Cheerups</h2>
+    
+  <% @user.cheerups.each do |cheerup| %>
+    <%= link_to cheerup_path(cheerup) do %>
+      <%= render cheerup %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 
 
