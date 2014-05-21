@@ -50,7 +50,7 @@ updateText = function() {
   editor.createData = function() {
     var canvas = $('canvas')[0];
     editor.dataToServer = canvas.toDataURL('image/png');
-    $('#datainput').val(editor.dataToServer);
+    $('#cheerup_image_data').val(editor.dataToServer);
   };
 
   

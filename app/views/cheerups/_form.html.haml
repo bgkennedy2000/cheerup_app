@@ -32,6 +32,7 @@
         %br
         = f.text_field :message
         = f.hidden_field :state, value: "published"
+        = f.hidden_field :image_data, value: ""
     %div.action
       - if @cheerup.calculated_image_url
         = f.submit "Post Cheerup"

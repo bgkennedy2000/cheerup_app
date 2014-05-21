@@ -19,6 +19,48 @@ class Cheerup < ActiveRecord::Base
   after_initialize :defaults
   before_validation :clear_image_file_if_image_url_given
 
+  include FileUtils
+  include Magick
+
+  def make_cheerup
+    if save
+      process_image
+      true
+    else
+      false
+    end
+  end
+
+  def process_image
+    if image_url
+      new_image = ImageList.new(image_url)
+      new_file_location = "#{Rails.root}/public/uploads/cheerup/image_file/#{self.id}/image.#{new_image.format.downcase}"
+      make_dir_if_none_exists(new_file_location)
+      new_image.write(new_file_location)
+      redefine_image_url(new_file_location)
+    end
+   end
+
+  def make_dir_if_none_exists(path)
+    dirname = File.dirname(path)
+    unless File.directory?(dirname)
+      FileUtils.mkdir_p(dirname)
+    end
+  end
+
+  def redefine_image_url(path)
+    image_url = path
+  end
+
+  def image_data(data)
+    # decode data and remove junk at bigging of base64 file
+    image_data = Base64.decode64(data['data:image/png;base64,'.length .. -1])
+
+    File.open("#{Rails.root}/public/uploads/composite_image/cheerup#{self.id}.png", 'wb') do |f|
+      f.write image_data
+    end
+  end
+
   def defaults
     self.state = "draft"
   end

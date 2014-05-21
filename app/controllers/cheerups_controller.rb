@@ -15,7 +15,7 @@ class CheerupsController < ApplicationController
 
 
     respond_to do |format|
-      if @cheerup.save && @cheerup.message
+      if @cheerup.make_cheerup && @cheerup.message
         format.html { redirect_to @cheerup, notice: 'Cheerup was successfully created.' }
         format.json { render json: @cheerup, status: :created, location: @cheerup }
       elsif
