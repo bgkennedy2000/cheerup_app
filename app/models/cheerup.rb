@@ -8,6 +8,7 @@ class Cheerup < ActiveRecord::Base
   validates :user_id, presence: true
   validate  :only_one_of_image_url_and_image_file_and_published
   validate :message_and_published
+  validate :has_image
   validates :state, :inclusion => {:in => ["flagged", "banned", "published", "draft"]}
 
   scope :bans, -> { where(state: "banned") }
@@ -113,6 +114,10 @@ class Cheerup < ActiveRecord::Base
     if self.state != 'draft'
       errors.add :base, "you can only include an image or an image url" if image_file_url.present? && image_url.present? 
     end
+  end
+
+  def has_image
+    errors.add :base, "please provide a valid image file" if image_url.blank? && image_file.blank? 
   end
 
   private
