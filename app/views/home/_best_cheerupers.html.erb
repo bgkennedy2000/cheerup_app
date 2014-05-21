@@ -1,19 +1,15 @@
 <h1>Best Cheerupers</h1>
 
-<ul>
-  <% @best_cheerupers.each do |user| %>
-    <li>
-      Username: <%= link_to user.username, user %>
-    </li>
-    <li>
-      Location: 
-      <%= user.location %> 
-    </li>
-    <li>
-      Rating: 
-      <%= user.rating %> 
-    </li>
-    <li><%= image_tag user.profile_pic.thumb.url %>
-    </li>
-  <% end %>
-</ul>
+<% @best_cheerupers.each do |user| %>
+  <div class="cheeruper">
+    <div class="username">
+      <%= link_to user.username, user %>
+    </div>
+    <div class="image"><%= link_to image_tag(user.profile_pic.details.url), user %>
+    </div>
+    <div class="rating">  
+      <%= link_to("Rating:", user) %>
+      <%= link_to(user.rating, user) %>
+    </div> 
+  </div>
+<% end %>

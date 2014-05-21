@@ -82,12 +82,8 @@ class User < ActiveRecord::Base
   def rating
     rating = 0
 
-    feedbacks.each do |feedback|
-      if feedback.kind == "like"
-        rating += 1
-      elsif feedback.kind == "flag"
-        rating -= 1
-      end
+    cheerups.each do |cheerup|
+      rating += cheerup.rating
     end
     return rating
   end

@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 
     @best_cheerupers = User.all
     @best_cheerupers.sort!{ |a,b| a.rating <=> b.rating }.reverse!
-    @best_cheerupers = @best_cheerupers[0..3]
+    @best_cheerupers = @best_cheerupers[0..1]
   end
 
 end
