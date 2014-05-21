@@ -28,7 +28,7 @@ $( document ).ready( function() {
 updateText = function() {
   editor.simpleText = new Kinetic.Text({
     x: editor.stage.width() / 2,
-    y: 200,
+    y: editor.stage.height() / 2,
     width: 200,
     text: "test",
     fontSize: 55,
@@ -51,7 +51,7 @@ updateText = function() {
     $('#datainput').val(editor.dataToServer);
   };
 
-  // editor.simpleText.offsetX(editor.simpleText.width()/2);
+  
 
   editor.stage = new Kinetic.Stage({
     container: 'canvas',
@@ -65,8 +65,10 @@ updateText = function() {
   };
 
   editor.setup = function() {
-   $('#message').keyup(function() {
+   $('#cheerup_message').keyup(function() {
          editor.simpleText.setText(editor.message());
+         editor.simpleText.offsetX(editor.simpleText.width()/2);
+         editor.simpleText.offsetY(editor.simpleText.height()/2);
          editor.layer.draw();
          editor.createData();
        });
