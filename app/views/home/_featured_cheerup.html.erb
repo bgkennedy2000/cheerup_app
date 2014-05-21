@@ -25,6 +25,8 @@
     <%= button_to "like", feedbacks_path(cheerup_id: @cheerup.id, kind: "like"), class: "like" %>
     Rating: <%= @cheerup.rating %>
   </div>
+
+  <%= render partial: 'tweet_button' %>
 </div>
 
 <div class="next">
