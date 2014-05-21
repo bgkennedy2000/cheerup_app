@@ -48,7 +48,7 @@ class Cheerup < ActiveRecord::Base
   def process_image
     #note: need to implement error handling for imageList
     if image_url && image_url != ""
-      new_image = ImageList.new(image_url)
+      new_image = ImageList.new(image_url).resize_to_fit(510, 510)
       relative_location = "/captured_image_file/#{self.id}/image.#{new_image.format.downcase}"
       new_file_location = "#{Rails.root}/public" + relative_location
       make_dir_if_none_exists(new_file_location)

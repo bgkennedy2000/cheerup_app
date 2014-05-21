@@ -10,8 +10,8 @@ $( document ).ready( function() {
       x: 0,
       y: 0,
       image: editor.imageObj,
-      width: 400,
-      height: 400
+      width: 510,
+      height: 510
     });
   
 
@@ -60,8 +60,8 @@ updateText = function() {
 
   editor.stage = new Kinetic.Stage({
     container: 'canvas',
-    width: 400,
-    height: 400
+    width: 510,
+    height: 510
   });
 
 
