@@ -17,7 +17,7 @@ class CheerupsController < ApplicationController
 
     respond_to do |format|
       if valid_for_draft && @cheerup.message
-        format.html { redirect_to @cheerup, notice: 'Cheerup was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Cheerup was successfully created.' }
         format.json { render json: @cheerup, status: :created, location: @cheerup }
       elsif valid_for_draft
         format.html { render action: "edit" }
@@ -51,7 +51,7 @@ class CheerupsController < ApplicationController
     @cheerup = Cheerup.find(params[:id])
     respond_to do |format|
       if @cheerup.update_cheerup_attributes(params[:cheerup])
-        format.html { redirect_to @cheerup, notice: 'Cheerup was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Cheerup was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

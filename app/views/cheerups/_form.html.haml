@@ -2,32 +2,24 @@
   = javascript_include_tag "kinetic-v5.1.0.min.js"
   = javascript_include_tag "cheerups.js", defer: "defer"
 
+- if @cheerup.errors.any?
+  %div#error_explanation
+    %h2.errors_messages 
+      - @cheerup.errors.full_messages.each do |msg|
+        = msg
 
 %section#cheerup_modal
-  = form_for(@cheerup) do |f|
-    - if @cheerup.errors.any?
-      %div#error_explanation
-        %h2 
-          = pluralize(@cheerup.errors.count, "error")
-          prohibited this cheerup from being saved:
-        %ul
-          = @cheerup.errors.full_messages.each do |msg|
-            %li 
-              = msg
+  = form_for(@cheerup) do |f|        
     - if @cheerup.calculated_image_url.nil? || @cheerup.id.nil?
-      %h2 Add Image
-      %div#image_selector
-        %div.field
-          = f.label "url"
-          %br
+      %div.clearfix#image_selector
+        %div.field_url
+          = f.label "image url"
           = f.text_field :image_url
-        %div.field
-          = f.label "upload file"
-          %br
+        %div.field_file
+          = f.label "upload image file"
           = f.file_field :image_file
 
     - if @cheerup.calculated_image_url && @cheerup.id
-      %h2 Add Message
       %div.field
         = f.label :message
         %br
@@ -35,7 +27,7 @@
         = f.hidden_field :state, value: "published"
         = f.hidden_field :image_data, value: ""
     %div.action
-      - if @cheerup.calculated_image_url
+      - if @cheerup.calculated_image_url && @cheerup.id
         = f.submit "Post Cheerup", id: "submit"
       - else
         = f.submit "Update Image", id: "submit"

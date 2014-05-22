@@ -2,11 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$button-color: #B2AF55;
+
+
 section#cheerup_modal {
-  max-width: 600px;
-  min-height: 600px; 
+  max-width: 775px;
+  min-height: 700px; 
   display: block;
-  margin: 0 auto;
+  margin: 30px auto;
   text-align: center;
 }
-    
+.errors_messages {
+  color: #CC4556;
+  background-color: #ACE5FF;
+  text-align: center;
+  padding: 20px;
+}
+#error_explanations {
+
+}
+.field {
+  &_url, &_file {
+    padding: 3px;
+    border-radius: 7px;
+    width: 48%;
+
+  }
+  &_url {
+    float: left;
+  }
+  &_file {
+    float: right;
+  }
+}
+input#submit {
+  background-color: $button-color;
+  height: 40px;
+  min-width: 150px;
+  margin: 10px;
+  clear: both;
+
+  &:hover {
+    background-color: lighten($button-color, 10%);
+  }
+}
+
+p {
+  display: block;
+}  
+#image_selector {
+  margin: 10px 0px;
+}

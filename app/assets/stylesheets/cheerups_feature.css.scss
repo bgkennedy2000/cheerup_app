@@ -17,6 +17,9 @@ section.feature {
 
   &:hover {
     opacity: 1.0;
+    border: 5px;
+    transition: border 1s;
+    border-color: #B24D5A;
   }
 
   & img#feature_image {

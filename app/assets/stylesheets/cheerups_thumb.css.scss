@@ -3,7 +3,7 @@ $image-frame-color: #EDEEEF;
 
 section.thumb {
   display: inline-block;
-  width: $image-size * 1.1;
+  width: $image-size * 1.2;
   height: $image-size * 1.3;
 
   & div.display {
@@ -14,14 +14,19 @@ section.thumb {
   border-radius: $image-size * .02;
   background-color: $image-frame-color;
   margin-left: 10px;
+  margin-top: 20px;
 
   &:hover {
     opacity: 1.0;
+    border: 3px;
+    transition: border 1s;
+    border-color: #B24D5A;
   }
 
   & img#thumb_image {
     border: 1px solid #222222;
     width: $image-size;
+
 
   }
   & div#hearts {
@@ -76,8 +81,9 @@ section.thumb {
   height: 20px;
   text-shadow: none;
   float: right;
-  margin-right: $image-size * 0.02;
-  margin-bottom: $image-size * 0.04;
-  font-size: $image-size * 0.02;
+  margin-right: $image-size * 0.00;
+  margin-bottom: $image-size * 0.01;
+  font-size: $image-size * 0.05;
+  text-align: right
 }
 }

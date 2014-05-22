@@ -133,13 +133,13 @@ class Cheerup < ActiveRecord::Base
   end
 
   def has_image
-    errors.add :base, "please provide a valid image file" if image_url.blank? && image_file.blank? 
+    errors.add :base, "Please provide a valid image file." if image_url.blank? && image_file.blank? 
   end
 
   private
   def valid_url_for_draft
     if state == "draft" && image_url.present?
-      errors.add :base, "url does not appear to be valid" unless URLImageValidator.valid?(image_url)
+      errors.add :base, "Url does not appear to be valid." unless URLImageValidator.valid?(image_url)
     end
   end
 
