@@ -17,7 +17,7 @@
 </div>
 
 <div id='cheerups'>
-  <h2><%= @user.username %>'s Cheerups</h2>
+  <h2 id='user'><%= @user.username %>'s Cheerups</h2>
     
   <% @user.cheerups.each do |cheerup| %>
     <%= link_to cheerup_path(cheerup) do %>
