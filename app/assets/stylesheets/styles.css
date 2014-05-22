@@ -25,7 +25,7 @@ nav {
 #menu-right {
   text-align: right;
   float: right;
-  width: 280px;
+  /*width: 280px;*/
 }
 
 #profile_thumb img {
