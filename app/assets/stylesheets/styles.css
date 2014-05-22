@@ -185,9 +185,6 @@ h2 {
   display: inline-block;
   float: left;
 }
-.featured_cheerup_image img{
-    width: 400px;
-  }
 #best_cheerups{
   display: inline-block;
   max-width: 300px;
@@ -197,8 +194,8 @@ h2 {
 }
 #best_cheerupers{
   display: inline-block;
-  max-width: 240px; 
-  float: right;
+  max-width: 240px;
+  float: right; 
 }
 .cheeruper {
   border: 1px solid black;
@@ -209,7 +206,7 @@ h2 {
   font-size: 100px;
   display: inline-block;
   max-width: 100px;
-  border: 1px dotted black;
+  margin-top: 300px;
 }
 
 .previous {
@@ -217,21 +214,5 @@ h2 {
 }
 .next {
   float: right;
-}
-
-
-@media (max-width: 480px) {
-  nav li {
-    display: block;
-    padding: 4px;
-  }
-  header, .main {
-    border: 0;
-    margin: 0px;
-    padding: 10px;
-  }
-  #cheerup, .cheerup_image img{
-    width: 200px;
-  }
 }
 
