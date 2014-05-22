@@ -1,5 +1,3 @@
-<h1>Featured Cheerup</h1>
-
 <div class="previous">
   <% if @page-1 >= 0 %>
     <%= link_to home_path(page: @page-1) do %>
@@ -13,7 +11,7 @@
   <div class="display">
     <%= link_to @cheerup do %>
       <div class="featured_cheerup_image">
-        <img src="<%= @cheerup.calculated_image_url %>">
+        <%= image_tag @cheerup.calculated_image_url %>
       </div>
     <% end %>
   </div>
