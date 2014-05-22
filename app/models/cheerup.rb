@@ -9,6 +9,7 @@ class Cheerup < ActiveRecord::Base
   validate  :only_one_of_image_url_and_image_file_and_published
   validate :message_and_published
   validate :has_image
+  validate :valid_url_for_draft
   validates :state, :inclusion => {:in => ["flagged", "banned", "published", "draft"]}
 
   scope :bans, -> { where(state: "banned") }
@@ -48,12 +49,18 @@ class Cheerup < ActiveRecord::Base
   def process_image
     #note: need to implement error handling for imageList
     if image_url && image_url != ""
-      new_image = ImageList.new(image_url).resize_to_fit(510, 510)
-      relative_location = "/captured_image_file/#{self.id}/image.#{new_image.format.downcase}"
-      new_file_location = "#{Rails.root}/public" + relative_location
-      make_dir_if_none_exists(new_file_location)
-      new_image.write(new_file_location)
-      self.image_url = relative_location
+      begin
+        new_image = ImageList.new(image_url).resize_to_fit(510, 510)
+        relative_location = "/captured_image_file/#{self.id}/image.#{new_image.format.downcase}"
+        new_file_location = "#{Rails.root}/public" + relative_location
+        make_dir_if_none_exists(new_file_location)
+        new_image.write(new_file_location)
+        self.image_url = relative_location        
+      rescue
+        errors.add :base, "unable to access image"
+
+      end
+
     end
    end
 
@@ -99,7 +106,7 @@ class Cheerup < ActiveRecord::Base
   end
 
   def calculated_image_url
-    image_url.present? ? image_url : image_file_url
+    image_url.present? && URLImageValidator.valid?(image_url) ? image_url : image_file_url
   end
 
   private
@@ -118,6 +125,13 @@ class Cheerup < ActiveRecord::Base
 
   def has_image
     errors.add :base, "please provide a valid image file" if image_url.blank? && image_file.blank? 
+  end
+
+  private
+  def valid_url_for_draft
+    if state == "draft" && image_url.present?
+      errors.add :base, "url does not appear to be valid" unless URLImageValidator.valid?(image_url)
+    end
   end
 
   private
