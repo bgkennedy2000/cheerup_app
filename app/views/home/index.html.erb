@@ -2,8 +2,24 @@
   <%= render partial: "best_cheerups" %>
 </div>
 
+<div class="previous">
+  <% if @page-1 >= 0 %>
+    <%= link_to home_path(page: @page-1) do %>
+      &#9664;
+    <% end %>
+  <% end %>
+</div>
+
 <div id="featured_cheerup">
   <%= render partial: "featured_cheerup" %>
+</div>
+
+<div class="next">
+  <% if @page+1 <= @new_cheerups.count %>
+    <%= link_to home_path(page: @page+1) do %>
+      &#9654;
+    <% end %>
+  <% end %>
 </div>
 
 <div id="best_cheerupers">
