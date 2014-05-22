@@ -1,7 +1,3 @@
-= content_for :head do
-  = javascript_include_tag "kinetic-v5.1.0.min.js"
-  = javascript_include_tag "cheerups.js", defer: "defer"
-
 %section#cheerup_modal
   = form_for(@cheerup) do |f|
     - if @cheerup.errors.any?

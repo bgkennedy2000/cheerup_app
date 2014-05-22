@@ -1,7 +1,9 @@
 
 
 <div id = "cover">
-  <%= image_tag @user.cover_image_url %>
+  <% if @user.cover_image_url %>
+    <%= image_tag @user.cover_image_url %>
+  <% end %>
 </div>
 
 <div id="chicken_wrap">
