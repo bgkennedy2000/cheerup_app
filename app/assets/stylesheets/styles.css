@@ -50,6 +50,11 @@ header, .main {
   max-height: 150px;
 }
 
+.hotlink {
+  height: 200px;
+  width: 200px;
+}
+
 #cheerups {
   width: 100%;
   margin-top: 300px;

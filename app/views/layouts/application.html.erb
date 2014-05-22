@@ -16,10 +16,9 @@
       <ul>
         <li><%= link_to 'Home', root_path %></li>
         <li><%= link_to "New cheerup", new_cheerup_path %></li>
-        <li><%= link_to 'Cheerups', cheerups_path %></li>
-        <li><%= link_to 'Cheeruppers', users_path %></li>
-        <li>Hello, <%= current_user.username %></li>
-        <li><%= link_to 'Profile', current_user %></li>
+        <!-- <li><%#= link_to 'Cheerups', cheerups_path %></li>
+        <li><%#= link_to 'Cheeruppers', users_path %></li> -->
+        <li><%= link_to image_tag(current_user.profile_pic.thumb.url), current_user %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
     <% else %>
@@ -38,8 +37,12 @@
 
 <div class="main">
 
+<% if flash.notice %>
   <p class="notice"><%= notice %></p>
+<% end %>
+<% if flash.alert %>
   <p class="alert"><%= alert %></p>
+<% end %>
   
 
   <%= yield %>
