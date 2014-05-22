@@ -17,10 +17,10 @@
           = f.label "url"
           %br
           = f.text_field :image_url
-        / %div.field
-        /   = f.label "upload file"
-        /   %br
-        /   = f.file_field :image_file
+        %div.field
+          = f.label "upload file"
+          %br
+          = f.file_field :image_file
 
     - if @cheerup.calculated_image_url && @cheerup.id
       %h2 Add Message
