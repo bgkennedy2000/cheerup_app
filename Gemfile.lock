@@ -61,9 +61,21 @@ GEM
       warden (~> 1.2.3)
     equalizer (0.0.9)
     erubis (2.7.0)
+    excon (0.13.4)
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    fog (1.3.1)
+      builder
+      excon (~> 0.13.0)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.0.4)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
+    formatador (0.2.4)
     haml (4.0.5)
       tilt
     haml-rails (0.4)
@@ -92,6 +104,10 @@ GEM
     multi_json (1.10.0)
     multipart-post (2.0.0)
     naught (1.0.0)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-ssh (2.8.0)
+    nokogiri (1.5.11)
     oauth (0.4.7)
     omniauth (1.2.1)
       hashie (>= 1.2, < 3)
@@ -140,6 +156,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     rmagick (2.13.2)
+    ruby-hmac (0.4.0)
     sass (3.3.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -187,6 +204,7 @@ DEPENDENCIES
   carrierwave (= 0.9.0)
   coffee-rails (~> 3.2.1)
   devise
+  fog (~> 1.3.1)
   haml-rails
   jquery-rails
   omniauth

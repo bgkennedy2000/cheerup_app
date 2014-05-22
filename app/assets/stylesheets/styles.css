@@ -203,8 +203,15 @@ h2 {
 }
 .cheeruper {
   border: 1px solid black;
+  border-radius: 5px;
   text-align: center;
   margin-bottom: 10px;
+  background-color: #EDEEEF;
+
+}
+
+.cheeruper img {
+  border: 1px solid #222222;
 }
 
 .previous, .next {

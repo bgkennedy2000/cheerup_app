@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :feedbacks, :dependent => :destroy
 
   validates :username, presence: true
-  validates_length_of :username, maximum: 12 
+  validates_length_of :username, maximum: 16 
   validates :role, :inclusion => {:in => ["admin", "user", "banned", "guest"]}
 
   mount_uploader :profile_pic, ProfileImageUploader
@@ -55,6 +55,7 @@ class User < ActiveRecord::Base
       user.oauth_token = auth.credentials.token
       user.oauth_secret = auth.credentials.secret
       user
+      
 
     else
       where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -65,6 +66,7 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
         user.oauth_token = auth.credentials.token
         user.oauth_secret = auth.credentials.secret
+        
       end
     end
   end
