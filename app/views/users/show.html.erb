@@ -26,7 +26,8 @@
     
   <% @user.cheerups.each do |cheerup| %>
     <%= link_to cheerup_path(cheerup) do %>
-      <%= render cheerup %>
+    
+    <%= render partial: "/cheerups/cheerup", locals: { type: "thumb", cheerup: cheerup } %>    
     <% end %>
   <% end %>
 </div>

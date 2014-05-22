@@ -1,6 +1,6 @@
 <h1>Best Cheerups</h1>
 
 <% @best_cheerups.each do |cheerup| %>
-  <%= render cheerup %>
+  <%= render partial: "/cheerups/cheerup", locals: { type: "thumb", cheerup: cheerup } %>
 <% end %>
 

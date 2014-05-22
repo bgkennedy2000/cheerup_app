@@ -12,3 +12,4 @@
         = cheerup.rating
       = button_to "", feedbacks_path(cheerup_id: cheerup.id, kind: "like"), class: "heart"
     = button_to "flag if inappropriate", feedbacks_path(cheerup_id: cheerup.id, kind: "flag"), class: "flag"
+    / = render partial: 'tweet_button'
