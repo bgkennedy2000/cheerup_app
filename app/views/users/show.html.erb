@@ -1,14 +1,14 @@
 
 
 <div id = "cover">
-  <% if @user.cover_image_url %>
+  <% if @user.cover_image_url && @user.cover_image_url != 'none'%>
     <%= image_tag @user.cover_image_url %>
   <% end %>
 </div>
 
 <div id="chicken_wrap">
   <div class = "profile-details">
-    <% if @user.profile_pic.details.url %>
+    <% if @user.profile_pic.details.url && @user.profile_pic.details.url != 'none' %>
   
       <%= image_tag @user.profile_pic.details.url %>
     <% end %>
