@@ -5,8 +5,11 @@
 </div>
 
 <div id="chicken_wrap">
-  <div class = "profile-details">  
-    <%= image_tag @user.profile_pic.details.url %>
+  <div class = "profile-details">
+    <% if user.profile_pic.details.url %>
+  
+      <%= image_tag @user.profile_pic.details.url %>
+    <% end %>
     <p><%= @user.username %></p>
     <p><%= @user.location %></p>
     <p><%= @user.tagline %></p>
