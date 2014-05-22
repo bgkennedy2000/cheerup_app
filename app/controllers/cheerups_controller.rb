@@ -49,7 +49,6 @@ class CheerupsController < ApplicationController
  
   def update
     @cheerup = Cheerup.find(params[:id])
-
     respond_to do |format|
       if @cheerup.update_cheerup_attributes(params[:cheerup])
         format.html { redirect_to @cheerup, notice: 'Cheerup was successfully updated.' }

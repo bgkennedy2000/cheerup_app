@@ -19,19 +19,20 @@ class Cheerup < ActiveRecord::Base
   mount_uploader :image_file, CheerupImageUploader
 
   after_initialize :defaults
-  before_validation :clear_image_file_if_image_url_given
+  before_validation :image_file_precedence
 
   include FileUtils
   include Magick
 
   def update_cheerup_attributes(params)
     image_data = params.delete(:image_data)
-    if update_attributes(params)
+    if self.update_attributes(params)
       relative_location = "/composite_image_file/#{self.id}/composite_image.png"
       path = "#{Rails.root}/public" + relative_location
       make_dir_if_none_exists(path)
       create_image_from_data(image_data, path)
       self.update_attribute(:image_url, relative_location)
+      
     else
       false
     end
@@ -106,7 +107,15 @@ class Cheerup < ActiveRecord::Base
   end
 
   def calculated_image_url
-    image_url.present? && URLImageValidator.valid?(image_url) ? image_url : image_file_url
+    if image_url && image_url != "" && image_url.include?("composite_image_file")
+      image_url
+    elsif image_file.file && image_file != ""
+      image_file_url
+    elsif image_url && image_url != ""
+      image_url
+    else
+      nil
+    end
   end
 
   private
@@ -118,9 +127,9 @@ class Cheerup < ActiveRecord::Base
 
 
   def only_one_of_image_url_and_image_file_and_published
-    if self.state != 'draft'
-      errors.add :base, "you can only include an image or an image url" if image_file_url.present? && image_url.present? 
-    end
+    # if self.state != 'draft'
+    #   errors.add :base, "you can only include an image or an image url" if image_file_url.present? && image_url.present? 
+    # end
   end
 
   def has_image
@@ -135,10 +144,9 @@ class Cheerup < ActiveRecord::Base
   end
 
   private
-  def clear_image_file_if_image_url_given
-    # if the image_url has been updated, but the image_file hasn't, assume the user wanted to clear the image_file
-    if image_url_changed? && !image_file_changed?
-      self.remove_image_file!
+  def image_file_precedence
+    if image_file.file && state == "draft"
+      self.image_url = nil
     end
   end
 end
