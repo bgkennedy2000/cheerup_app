@@ -136,7 +136,6 @@ h2 {
 #featured_cheerup {
   display: inline-block;
   width: 640px;
-  vertical-align: top;
 }
 .featured_cheerup_image img{
     width: 400px;
@@ -159,8 +158,10 @@ h2 {
 .previous, .next {
   font-size: 100px;
   display: inline-block;
-  vertical-align: middle;
   min-width: 100px;
+  margin: auto auto;
+  border: 1px dotted black;
+  margin-bottom: 500px;
 }
 
 
