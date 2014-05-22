@@ -60,6 +60,7 @@ footer {
    width:100%;
 }
 .main {
+  position: relative;
   background-color: white;
 }
 
@@ -129,6 +130,7 @@ nav li {
 .cheerup {
   margin: 0px;
   display: inline-block;
+  float: left;
 }
 
 .cheerup .image {
@@ -181,7 +183,7 @@ h2 {
 }
 #featured_cheerup {
   display: inline-block;
-  width: 640px;
+  float: left;
 }
 .featured_cheerup_image img{
     width: 400px;
@@ -191,10 +193,12 @@ h2 {
   max-width: 300px;
   margin-bottom: 10px;
   text-align: center;
+  float: left;
 }
 #best_cheerupers{
   display: inline-block;
   max-width: 240px; 
+  float: right;
 }
 .cheeruper {
   border: 1px solid black;
@@ -206,6 +210,13 @@ h2 {
   display: inline-block;
   max-width: 100px;
   border: 1px dotted black;
+}
+
+.previous {
+  float: left;
+}
+.next {
+  float: right;
 }
 
 
