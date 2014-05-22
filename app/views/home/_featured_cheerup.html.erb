@@ -1,20 +1,11 @@
 
 
 <div class="cheerup">
-  <div class="display">
-    <%= link_to @cheerup do %>
-      <div class="featured_cheerup_image">
-        <%= image_tag @cheerup.calculated_image_url %>
-      </div>
-    <% end %>
-  </div>
-  <div class="rate">
-    <%= button_to "flag", feedbacks_path(cheerup_id: @cheerup.id, kind: "flag"), class: "flag" %>
-    <%= button_to "like", feedbacks_path(cheerup_id: @cheerup.id, kind: "like"), class: "like" %>
-    Rating: <%= @cheerup.rating %>
+  
+  <div>
+    <%= render partial: "/cheerups/cheerup", locals: { type: "feature", cheerup: @cheerup } %>
   </div>
 
-  <%= render partial: 'tweet_button' %>
 </div>
 
 

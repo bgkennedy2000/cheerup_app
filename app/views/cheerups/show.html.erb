@@ -1,7 +1,9 @@
 
 <p>Username:<%= @cheerup.user.username %></p>
 
-<%= render @cheerup %>
+<div>
+    <%= render partial: "/cheerups/cheerup", locals: { type: "feature", cheerup: @cheerup } %>
+</div>
 
 <% if can? :update, @cheerup %>
    

@@ -1,0 +1,15 @@
+/ Takes a local variable: "type" and "cheerup" into its class to determine rendering
+
+= content_for :head do
+  = stylesheet_link_tag "cheerups_feature"
+  = stylesheet_link_tag "cheerups_thumb"
+
+%section{class: "#{type}" }
+  %div.display
+    = image_tag(cheerup.calculated_image_url, id: "#{type}_image")
+    %div#hearts
+      %p
+        = cheerup.rating
+      = button_to "", feedbacks_path(cheerup_id: cheerup.id, kind: "like"), class: "heart"
+    = button_to "flag if inappropriate", feedbacks_path(cheerup_id: cheerup.id, kind: "flag"), class: "flag"
+    / = render partial: 'tweet_button'
