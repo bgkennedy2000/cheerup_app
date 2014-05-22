@@ -8,7 +8,6 @@
 <% if can? :update, @cheerup %>
    
   <p>
-    <%= link_to 'Edit Cheerup', edit_cheerup_path(@cheerup) %>
     <%= link_to 'Delete Cheerup', @cheerup, method: :delete, data: { confirm: 'Are you sure?' } %>
   </p>
 <% end %>
