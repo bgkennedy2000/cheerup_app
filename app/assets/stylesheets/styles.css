@@ -183,6 +183,7 @@ h2 {
   font-size: 24px;
 }
 #featured_cheerup {
+  margin-top: 20px;
   display: inline-block;
   float: left;
 }
@@ -203,6 +204,7 @@ h2 {
 .cheeruper {
   border: 1px solid black;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .previous, .next {
