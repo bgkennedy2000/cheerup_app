@@ -46,6 +46,11 @@ nav {
   max-height: 700px;
 }
 
+
+.session {
+  text-align: center;
+}
+
 header {
   /*border-bottom: 1px solid black;*/
   padding: 20px;
