@@ -122,7 +122,7 @@ nav li {
   opacity:0.4;
 }
 
-.cheerup a, #featured_cheerup a {
+.cheerup a, .previous a, .next a {
   color: black;
   text-decoration: none;
 }
@@ -162,8 +162,7 @@ h2 {
 .previous, .next {
   font-size: 100px;
   display: inline-block;
-  min-width: 100px;
-  margin: auto auto;
+  max-width: 100px;
   border: 1px dotted black;
 }
 
@@ -178,7 +177,8 @@ h2 {
     margin: 0px;
     padding: 10px;
   }
-  #featured_cheerup, .featured_cheerup_image img{
+  #cheerup, .cheerup_image img{
     width: 200px;
   }
 }
+

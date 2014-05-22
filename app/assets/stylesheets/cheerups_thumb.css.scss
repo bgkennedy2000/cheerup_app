@@ -36,6 +36,17 @@ section.thumb {
       font-size: $image-size * 0.05;
       margin-left: $image-size * .0.15;
     }
+    #tweet_form, form {
+      display: inline-block;
+    }
+    #tweet_form input {
+      background-color: transparent;
+      background-image: url('/assets/bird_blue_32.png');
+      background-size: cover;
+      width:  $image-size / 20;
+      height: $image-size / 20;
+      border: 0;
+    }
   & input.heart {
     background-image: url('/assets/dark_red_heart.png');
     background-size: $image-size * 0.12;

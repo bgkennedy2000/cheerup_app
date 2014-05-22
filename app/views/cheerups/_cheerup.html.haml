@@ -11,5 +11,9 @@
       %p
         = cheerup.rating
       = button_to "", feedbacks_path(cheerup_id: cheerup.id, kind: "like"), class: "heart"
+      #tweet_form
+        - if current_user && current_user.provider == "twitter"
+          = form_for :tweet, url: tweets_path, method: :post do |f|
+            = f.hidden_field :cheerup_id, value: cheerup.id
+            = f.submit ""
     = button_to "flag if inappropriate", feedbacks_path(cheerup_id: cheerup.id, kind: "flag"), class: "flag"
-    / = render partial: 'tweet_button'
