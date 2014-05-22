@@ -36,6 +36,21 @@ nav {
   vertical-align: middle;
 }
 
+
+#landing-page {
+  text-align: center;
+}
+
+#landing-page img {
+  padding-top: 20px;
+  max-height: 700px;
+}
+
+
+.session {
+  text-align: center;
+}
+
 header {
   /*border-bottom: 1px solid black;*/
   padding: 20px;
