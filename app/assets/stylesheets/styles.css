@@ -20,6 +20,10 @@ header a:hover {
 }
 footer {
   text-align: center;
+  position:fixed;
+   bottom:20px;
+   height: 5px;
+   width:100%;
 }
 .main {
   background-color: white;
