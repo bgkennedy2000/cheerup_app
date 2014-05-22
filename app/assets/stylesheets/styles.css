@@ -28,6 +28,13 @@ nav {
   width: 280px;
 }
 
+#profile_thumb img {
+  vertical-align: top;
+}
+#cheerup_logo {
+  vertical-align: middle;
+}
+
 header {
   border-bottom: 1px solid black;
   padding: 20px;
