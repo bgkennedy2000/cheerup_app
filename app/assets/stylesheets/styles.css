@@ -132,6 +132,11 @@ footer {
 #cheerups {
   width: 100%;
   margin-top: 340px;
+  padding: 35px;
+}
+
+h2#user {
+  padding-bottom: 20px;
 }
 
 header {
