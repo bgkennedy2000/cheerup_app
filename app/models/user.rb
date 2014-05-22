@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :feedbacks, :dependent => :destroy
 
   validates :username, presence: true
+  validates_length_of :username, maximum: 12 
   validates :role, :inclusion => {:in => ["admin", "user", "banned", "guest"]}
 
   mount_uploader :profile_pic, ProfileImageUploader

@@ -1,5 +1,6 @@
 body {
   font-family: Helvetica;
+  background-color: white;
 }
 
 nav {
@@ -25,7 +26,7 @@ nav {
 #menu-right {
   text-align: right;
   float: right;
-  width: 280px;
+  /*width: 280px;*/
 }
 
 #profile_thumb img {
@@ -36,14 +37,14 @@ nav {
 }
 
 header {
-  border-bottom: 1px solid black;
+  /*border-bottom: 1px solid black;*/
   padding: 20px;
   height: 50px;
 }
 
 header {
   color: #FFFB92;
-  background-color: #B24D5A;
+  background-color: #CC4556;
 }
 header a {
   text-decoration: none;
