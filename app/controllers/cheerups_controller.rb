@@ -13,12 +13,13 @@ class CheerupsController < ApplicationController
     @cheerup = Cheerup.new(params[:cheerup])
     @cheerup.user = current_user
 
+    valid_for_draft = @cheerup.make_cheerup
 
     respond_to do |format|
-      if @cheerup.make_cheerup && @cheerup.message
+      if valid_for_draft && @cheerup.message
         format.html { redirect_to @cheerup, notice: 'Cheerup was successfully created.' }
         format.json { render json: @cheerup, status: :created, location: @cheerup }
-      elsif
+      elsif valid_for_draft
         format.html { render action: "edit" }
         format.json { render json: @cheerup, status: :image_loaded }
       else
