@@ -6,6 +6,8 @@ gem 'rails', '3.2.18'
 gem 'carrierwave', '0.9.0'
 gem 'rmagick'
 
+gem 'httparty', '0.11.0'
+
 gem 'cancancan'
 
 # Bundle edge Rails instead:
