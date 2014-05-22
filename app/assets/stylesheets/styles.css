@@ -188,14 +188,16 @@ h2 {
 }
 #best_cheerups{
   display: inline-block;
-  max-width: 300px;
-  margin-bottom: 10px;
+  max-width: 240px;
+  margin-top: 20px;
   text-align: center;
   float: left;
 }
 #best_cheerupers{
   display: inline-block;
   max-width: 240px;
+  margin-right: 10px;
+  margin-top: 20px;
   float: right; 
 }
 .cheeruper {
@@ -206,7 +208,7 @@ h2 {
 .previous, .next {
   font-size: 100px;
   display: inline-block;
-  max-width: 100px;
+  min-width: 100px;
   margin-top: 300px;
 }
 
