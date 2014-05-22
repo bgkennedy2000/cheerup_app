@@ -13,23 +13,41 @@
 
   <nav>
     <% if current_user %>
+    <div class = "menu-left">
       <ul>
         <li><%= link_to 'Home', root_path %></li>
-        <li><%= image_tag "cheerup_logo.png" %></li>
-        <li><%= link_to image_tag("smiley-face.png"), new_cheerup_path %></li>
+      </ul>
+    </div>
+    <div id = "menu-right">
+      <ul>
         <li><%= link_to current_user.username, current_user %></li>
         <li><%= link_to image_tag(current_user.profile_pic.thumb.url), current_user %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
+    </div>
+    <div id = "menu-center">
+      <ul>
+        <li><%= image_tag "cheerup_logo2.png" %></li>
+        <li><%= link_to image_tag("smiley-face.png"), new_cheerup_path %></li>
+      </ul>
+    </div>
     <% else %>
-    <div class='login'>
-      <%= link_to "Sign In", new_user_session_path %>
-      <%= link_to "Register", new_user_registration_path %>
+    <div class = "menu-left">
+      <div class='login'>
+        <%= link_to "Sign In", new_user_session_path %>
+        <%= link_to "Register", new_user_registration_path %>
+      </div>
+    </div>
+    <div id = "menu-center">
+      <ul>
+        <li><%= image_tag "cheerup_logo2.png" %></li>
+        <li><%= link_to image_tag("smiley-face.png"), new_cheerup_path %></li>
+      </ul>
     </div>
     <% end %>
-  
+
   </nav>
-  
+
 
 </header>
 

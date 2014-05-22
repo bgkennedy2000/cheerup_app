@@ -2,9 +2,36 @@ body {
   font-family: Helvetica;
 }
 
+nav {
+  width: 100%;
+}
+
+.menu-left {
+  text-align: left;
+  float: left;
+  width: 180px;
+}
+
+#menu-center {
+  text-align: center;
+  margin-left: 160px;
+  margin-right: 290px;
+}
+
+#menu-right img {
+  border-radius: 5px;
+}
+
+#menu-right {
+  text-align: right;
+  float: right;
+  width: 280px;
+}
+
 header {
   border-bottom: 1px solid black;
   padding: 20px;
+  height: 50px;
 }
 
 header {
@@ -20,6 +47,10 @@ header a:hover {
 }
 footer {
   text-align: center;
+  position:fixed;
+   bottom:20px;
+   height: 5px;
+   width:100%;
 }
 .main {
   background-color: white;
@@ -41,7 +72,7 @@ footer {
 }
 
 #cover {
-  margin-top: 95px;
+  margin-top: 110px;
 }
 
 #cover img {
@@ -56,13 +87,17 @@ footer {
   text-align: center;
 }
 
+#chicken_wrap img {
+  border-radius: 30px;
+}
+
 .profile-details {
   position: relative;
   right: 50%;
   width: 100%;
   color: black;
   text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .profile-details img {
