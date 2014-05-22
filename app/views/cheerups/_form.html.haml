@@ -2,6 +2,8 @@
   = javascript_include_tag "kinetic-v5.1.0.min.js"
   = javascript_include_tag "cheerups.js", defer: "defer"
 
+raise ''
+
 %section#cheerup_modal
   = form_for(@cheerup) do |f|
     - if @cheerup.errors.any?
@@ -13,7 +15,7 @@
           = @cheerup.errors.full_messages.each do |msg|
             %li 
               = msg
-    - if @cheerup.calculated_image_url.nil?
+    - if @cheerup.calculated_image_url.nil? || @cheerup.id.nil?
       %h2 Add Image
       %div#image_selector
         %div.field
@@ -25,7 +27,7 @@
           %br
           = f.file_field :image_file
 
-    - if @cheerup.calculated_image_url
+    - if @cheerup.calculated_image_url && @cheerup.id
       %h2 Add Message
       %div.field
         = f.label :message

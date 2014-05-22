@@ -106,7 +106,13 @@ class Cheerup < ActiveRecord::Base
   end
 
   def calculated_image_url
-    image_url.present? && URLImageValidator.valid?(image_url) ? image_url : image_file_url
+    if image_file.file && image_file != ""
+      image_file_url
+    elsif image_url && image_url != ""
+      image_url
+    else
+      nil
+    end
   end
 
   private
