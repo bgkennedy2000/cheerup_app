@@ -267,3 +267,8 @@ h2 {
   text-align: center;
   padding: 20px;
 }
+main.home {
+  min-height: 800px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
