@@ -1,7 +1,7 @@
 class CheerupsController < ApplicationController
   
   def index
-    @cheerups = Cheerup.all
+    @cheerups = Cheerup.published
   end
 
   def new

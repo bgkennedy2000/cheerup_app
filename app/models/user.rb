@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     self.feedbacks.where(kind: "flag")
   end
 
-  def valid_cheerups
+  def published_cheerups
     self.cheerups.where(state: "published")
   end
 
