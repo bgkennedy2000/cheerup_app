@@ -5,8 +5,7 @@
     <div class="username">
       <%= link_to user.username, user %>
     </div>
-    <div class="image"><%= link_to image_tag(user.profile_pic.details.url), user %>
-    </div>
+    
     <div class="rating">  
       <%= link_to("Rating:", user) %>
       <%= link_to(user.rating, user) %>
