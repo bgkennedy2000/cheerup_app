@@ -1,7 +1,8 @@
+<main class="show">
 
 <p>Username:<%= @cheerup.user.username %></p>
 
-<div>
+<div id="show">
     <%= render partial: "/cheerups/cheerup", locals: { type: "feature", cheerup: @cheerup } %>
 </div>
 
@@ -11,8 +12,7 @@
     <%= link_to 'Delete Cheerup', @cheerup, method: :delete, data: { confirm: 'Are you sure?' } %>
   </p>
 <% end %>
-<p>
-<%= render partial: 'tweet_button' %>
-</p>
 
 <p><%= link_to 'Back', root_path %></p>
+
+</main>

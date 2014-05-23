@@ -24,6 +24,8 @@ class Cheerup < ActiveRecord::Base
   include FileUtils
   include Magick
 
+# custom update atttributes: includes make image from data method
+
   def update_cheerup_attributes(params)
     image_data = params.delete(:image_data)
     if self.update_attributes(params)
@@ -48,7 +50,6 @@ class Cheerup < ActiveRecord::Base
   end
 
   def process_image
-    #note: need to implement error handling for imageList
     if image_url && image_url != ""
       begin
         new_image = ImageList.new(image_url).resize_to_fit(510, 510)
@@ -71,6 +72,7 @@ class Cheerup < ActiveRecord::Base
       FileUtils.mkdir_p(dirname)
     end
   end
+
 
   def create_image_from_data(data, path)
     # decode data and remove junk at bigging of base64 file

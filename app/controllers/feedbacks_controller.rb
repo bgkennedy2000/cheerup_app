@@ -2,6 +2,7 @@ class FeedbacksController < ApplicationController
 
   def create
 
+
     @user = current_user
     @cheerup = Cheerup.find(params[:cheerup_id])
     @feedback = Feedback.new(cheerup_id: @cheerup.id, user_id: @user.id,
@@ -10,7 +11,7 @@ class FeedbacksController < ApplicationController
     if @feedback.save
       redirect_to home_path, notice: 'Feedback was successfully created.' 
     else
-      redirect_to home_path, notice: 'Feedback not successfully created. '+@feedback.errors.full_messages.join(". ")+"."
+      redirect_to home_path, notice: 'Feedback not successfully created. You cannot like a cheerup more than once.'
     end
 
   end
