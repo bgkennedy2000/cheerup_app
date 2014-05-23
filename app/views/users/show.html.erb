@@ -19,7 +19,7 @@
 <div id='cheerups'>
   <h2 id='user'><%= @user.username %>'s Cheerups</h2>
     
-  <% @user.published_cheerups.each do |cheerup| %>
+  <% @user.published_cheerups.reverse!.each do |cheerup| %>
     <%= link_to cheerup_path(cheerup) do %>
     
     <%= render partial: "/cheerups/cheerup", locals: { type: "thumb", cheerup: cheerup } %>    
